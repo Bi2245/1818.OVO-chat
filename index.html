@@ -45,70 +45,6 @@
             --page-bg-special: none;
         }
 
-        /* ▲▲▲ 防火墙CSS：激活弹窗样式 ▲▲▲ */
-        #activation-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            backdrop-filter: blur(5px);
-        }
-        .activation-modal {
-            background: #F0FFF0; /* 薄荷奶绿背景 */
-            border: 1px solid #B2DFDB; /* 浅薄荷色边框 */
-            border-radius: 16px;
-            padding: 30px;
-            width: 90%;
-            max-width: 340px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            color: #004D40; /* 深薄荷色文字 */
-        }
-        .activation-modal .icon {
-            font-size: 48px;
-            color: #80CBC4; /* 柔和薄荷色图标 */
-            margin-bottom: 15px;
-        }
-        .activation-modal h2 {
-            margin: 0 0 10px;
-            font-size: 22px;
-        }
-        .activation-modal p {
-            margin: 0 0 20px;
-            font-size: 14px;
-            color: #4DB6AC;
-        }
-        .activation-modal input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #B2DFDB;
-            border-radius: 8px;
-            box-sizing: border-box;
-            text-align: center;
-            font-size: 16px;
-            background: #E0F2F1;
-            color: #004D40;
-        }
-        .activation-modal button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: #80CBC4;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-        .activation-modal button:hover {
-            background: #4DB6AC;
-        }
-
         /* 夜间模式 */
         body.dark-mode {
             --wechat-bg: #121212;
@@ -627,8 +563,8 @@
         .couple-invitation-bubble .actions .accept-btn { background: var(--wechat-green); color: white; }
         body.dark-mode .couple-invitation-bubble { background-color: #2c2c2e; border-color: #3a3a3c; }
 
-        /* 外卖/礼物订单收据气泡 */
-        .receipt-bubble {
+        /* 外卖订单收据气泡 */
+        .delivery-receipt-bubble {
             background-color: #fff;
             border: 1px solid #f0f0f0;
             width: 260px;
@@ -637,15 +573,14 @@
             overflow: hidden;
             font-family: monospace;
         }
-        .receipt-bubble .header { background: #333; color: white; padding: 8px 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        .receipt-bubble .header i { margin-right: 8px; }
-        .receipt-bubble .items { padding: 12px; font-size: 13px; line-height: 1.6; border-bottom: 1px dashed #ccc; }
-        .receipt-bubble .item-row { display: flex; justify-content: space-between; }
-        .receipt-bubble .total { padding: 10px 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        .receipt-bubble .footer { font-size: 12px; color: #999; text-align: center; padding: 8px; background: #fafafa; }
-        body.dark-mode .receipt-bubble { background-color: #2c2c2e; border-color: #3a3a3c; }
-        body.dark-mode .receipt-bubble .header { background: #111; }
-        body.dark-mode .receipt-bubble .footer { background: #222; }
+        .delivery-receipt-bubble .header { background: #333; color: white; padding: 8px 12px; font-weight: bold; }
+        .delivery-receipt-bubble .items { padding: 12px; font-size: 13px; line-height: 1.6; border-bottom: 1px dashed #ccc; }
+        .delivery-receipt-bubble .item-row { display: flex; justify-content: space-between; }
+        .delivery-receipt-bubble .total { padding: 10px 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .delivery-receipt-bubble .footer { font-size: 12px; color: #999; text-align: center; padding: 8px; background: #fafafa; }
+        body.dark-mode .delivery-receipt-bubble { background-color: #2c2c2e; border-color: #3a3a3c; }
+        body.dark-mode .delivery-receipt-bubble .header { background: #111; }
+        body.dark-mode .delivery-receipt-bubble .footer { background: #222; }
 
         /* [优化] 翻译/转文字/转发/音乐/代码片段气泡 */
         .translated-text-bubble, .voice-transcribed-bubble { 
@@ -893,17 +828,19 @@
             white-space: pre-wrap;
         }
 
-        /* [优化] 外卖/礼物弹窗通用样式 */
+        /* 外卖/礼物弹窗通用样式 */
         .delivery-search-bar { padding: 10px; }
         .delivery-search-bar input { width: 100%; padding: 10px; border-radius: 20px; border: 1px solid var(--wechat-border-color); box-sizing: border-box; }
-        .item-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px; }
-        .grid-item { display: flex; flex-direction: column; background: var(--wechat-nav-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .grid-item img { width: 100%; height: 100px; object-fit: cover; }
-        .grid-item .info { padding: 10px; flex: 1; display: flex; flex-direction: column; }
-        .grid-item .name { font-weight: 500; flex: 1; font-size: 14px; }
-        .grid-item .desc { font-size: 12px; color: var(--wechat-text-secondary); margin: 4px 0; }
-        .grid-item .price { color: var(--wechat-red); font-weight: bold; margin-top: 5px; }
-        .grid-item .action-btn { background: var(--wechat-green); color: white; border: none; border-radius: 6px; padding: 6px 0; width: 100%; font-size: 14px; cursor: pointer; align-self: flex-end; margin-top: 8px; }
+        .food-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 10px; }
+        .food-item { display: flex; flex-direction: column; background: var(--wechat-nav-bg); border-radius: 8px; overflow: hidden; }
+        .food-item img { width: 100%; height: 100px; object-fit: cover; }
+        .food-item .info { padding: 10px; flex: 1; display: flex; flex-direction: column; }
+        .food-item .name { font-weight: 500; flex: 1; }
+        .food-item .price { color: var(--wechat-red); font-weight: bold; margin-top: 5px; }
+        .food-item .add-btn { background: var(--wechat-green); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 20px; cursor: pointer; align-self: flex-end; }
+        /* [优化] 礼物商店九宫格布局 */
+        .gift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px; }
+        .gift-grid .food-item { /* 复用food-item样式 */ }
 
         .bottom-nav { display: flex; border-top: 1px solid var(--wechat-border-color); background: var(--wechat-nav-bg); }
         .bottom-nav .nav-item { flex: 1; text-align: center; padding: 8px 0; cursor: pointer; color: var(--wechat-text-secondary); }
@@ -1050,7 +987,7 @@
         #user-voice-bubble-style {}
     </style>
 </head>
-<body>    
+<body>
     <div class="phone-container" id="phone-body">
         <div class="screen">
             <!-- 主页面容器 -->
@@ -1156,7 +1093,7 @@
     <script>
         // ========== 通用数据管理器 (IndexedDB) ==========
         class UniversalDataManager {
-            constructor(dbName = 'WeChatSimulatorDB_v17', storeName = 'appDataStore') { // Version bump
+            constructor(dbName = 'WeChatSimulatorDB_v16', storeName = 'appDataStore') { // Version bump
                 this.dbName = dbName;
                 this.storeName = storeName;
                 this.db = null;
@@ -1253,9 +1190,9 @@
                 id: 'user', nickname: " ", avatar: "https://img.js.design/assets/img/6638e4537cf422dc287d398d.jpg",
                 wxid: " ", address: " ", signature: " ",
                 moments_bg: "https://source.unsplash.com/random/800x600?sky",
-                wallet: { balance: 1000000, transactions: [], currency: 'CNY' },
+                wallet: { balance: 100000, transactions: [], currency: 'CNY' },
                 personas: [],
-                bankCards: [],
+                bankCards: [], // [新增]
             },
             contacts: [], groups: [], moments: [],
             stickers: { packs: [] },
@@ -1272,8 +1209,8 @@
                     bubbleCss: `/* --- 经典微信气泡样式  --- */\n.message-row { gap: 10px; }\n.message-bubble { position: relative; padding: 10px 14px; font-size: 15px; line-height: 1.4; max-width: 100%; word-break: break-word; border-radius: 6px; }\n.message-row.sent .message-bubble { background: #96d35f; color: #000; }\n.message-row.received .message-bubble { background: #ffffff; color: #000; }\n.message-row.sent .message-bubble::after { content: ""; position: absolute; right: -6px; top: 12px; width: 8px; height: 12px; background: #96d35f; clip-path: polygon(0 0, 100% 50%, 0 100%); }\n.message-row.received .message-bubble::after { content: ""; position: absolute; left: -6px; top: 12px; width: 8px; height: 12px; background: #ffffff; clip-path: polygon(100% 0, 0 50%, 100% 100%); }`,
                     voiceBubbleCss: `/* [优化] 语音气泡动态效果 */\n.voice-bubble-content { display: flex; align-items: center; gap: 10px; cursor: pointer; }\n.voice-bubble-content .waveform { display: flex; align-items: center; height: 20px; overflow: hidden; }\n.voice-bubble-content .bar { width: 3px; height: 4px; background-color: var(--wechat-text-secondary); margin: 0 1.5px; border-radius: 2px; animation: wave 1.2s ease-in-out infinite alternate; }\n.message-row.sent .voice-bubble-content .bar { background-color: #000; }\n.message-row.received .voice-bubble-content .bar { background-color: var(--wechat-text-primary); }\n@keyframes wave { 0% { transform: scaleY(0.2); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0.2); } }`,
                     bubbleArchives: [{}, {}, {}, {}, {}],
-                    globalThemeArchives: [{css:''}, {css:''}, {css:''}],
-                    activeGlobalThemeSlot: -1,
+                    globalThemeArchives: [{css:''}, {css:''}, {css:''}], // [新增]
+                    activeGlobalThemeSlot: -1, // [新增]
                     fontUrl: '', fontFile: null, fontSize: 15,
                     screenWidth: 380, screenHeight: 690,
                 },
@@ -1306,21 +1243,21 @@
             },
             longTermMemory: {},
             activeChat: { id: null, type: null },
-            version: '17.0' // Version bump
+            version: '16.0' // Version bump
         };
 
         async function loadData() {
             try {
                 const savedData = await dataManager.loadData(DATA_KEY);
                 appData = savedData ? savedData : JSON.parse(JSON.stringify(defaultAppData));
-                // ▲▲▲ 防火墙：数据迁移与验证 ▲▲▲
+                // Data migration and validation
                 if (!appData.user.bankCards) appData.user.bankCards = [];
                 if (!appData.settings.beautify.globalThemeArchives) appData.settings.beautify.globalThemeArchives = [{css:''}, {css:''}, {css:''}];
                 if (appData.settings.beautify.activeGlobalThemeSlot === undefined) appData.settings.beautify.activeGlobalThemeSlot = -1;
+                // ... (other migrations from original code)
                 if (!appData.user.nickname) { appData.user.nickname = appData.user.name || ' '; delete appData.user.name; }
                 if (appData.user.persona) delete appData.user.persona;
                 if (appData.user.address === undefined) appData.user.address = '';
-                if (!appData.user.wallet) appData.user.wallet = JSON.parse(JSON.stringify(defaultAppData.user.wallet));
                 if (!appData.user.wallet.currency) appData.user.wallet.currency = 'CNY';
                 if (!appData.settings.charLanguage) appData.settings.charLanguage = 'zh-CN';
                 if (!appData.settings.notifications) appData.settings.notifications = JSON.parse(JSON.stringify(defaultAppData.settings.notifications));
@@ -1337,7 +1274,6 @@
                 if (!appData.settings.beautify.bubbleArchives) appData.settings.beautify.bubbleArchives = [{}, {}, {}, {}, {}];
                 if (!appData.settings.api.repetition_penalty) appData.settings.api.repetition_penalty = 0.69;
                 if (!appData.settings.api.presets) appData.settings.api.presets = [];
-                if (!appData.music) appData.music = JSON.parse(JSON.stringify(defaultAppData.music));
                 if (!appData.music.playerImage) appData.music.playerImage = defaultAppData.music.playerImage;
                 if (!appData.music.playerBackground) appData.music.playerBackground = defaultAppData.music.playerBackground;
                 appData.contacts.forEach(c => {
@@ -1365,35 +1301,21 @@
                 }
             } catch (error) {
                 console.error("Error saving data to IndexedDB:", error);
-                alert(`▲▲▲ 防火墙警告：数据保存失败！\n错误: ${error.message}\n请检查浏览器权限或联系技术支持。`);
             }
         }
 
         // --- Navigation ---
         let pageHistory = ['main-container'];
         function showPage(pageId, renderFunc, ...args) {
-            // ▲▲▲ 防火墙：页面渲染前检查 ▲▲▲
             const pageElement = document.getElementById(pageId);
-            if (!pageElement) {
-                console.error(`Firewall: Page with ID "${pageId}" not found.`);
-                alert(`▲▲▲ 防火墙警告：页面渲染失败！\n找不到ID为 "${pageId}" 的页面。`);
-                return;
-            }
-            if (typeof renderFunc !== 'function') {
-                console.error(`Firewall: renderFunc for page "${pageId}" is not a function.`);
-                alert(`▲▲▲ 防火墙警告：页面渲染失败！\n页面 "${pageId}" 的渲染函数无效。`);
-                return;
-            }
+            if (!pageElement) return;
 
             if (pageHistory[pageHistory.length - 1] !== pageId) {
                 pageHistory.push(pageId);
             }
 
-            try {
+            if (renderFunc) {
                 renderFunc(pageElement, ...args);
-            } catch (error) {
-                console.error(`Firewall: Error rendering page "${pageId}":`, error);
-                pageElement.innerHTML = `<div class="wechat-header"><div class="header-left header-back-btn" onclick="goBack()">返回</div></div><div style="padding: 20px; color: red;">页面渲染时发生错误: ${error.message}</div>`;
             }
             
             const allPages = document.querySelectorAll('.page');
@@ -1431,12 +1353,6 @@
             const header = document.getElementById('main-header');
             const plusBtn = document.getElementById('main-plus-btn');
             
-            // ▲▲▲ 防火墙：确保核心元素存在 ▲▲▲
-            if (!contentArea || !header || !plusBtn) {
-                document.body.innerHTML = "<h1>严重错误：主界面UI缺失，请清理缓存后重试。</h1>";
-                return;
-            }
-
             contentArea.innerHTML = '';
             plusBtn.style.display = 'block';
             header.querySelector('.header-left').style.visibility = 'visible';
@@ -1516,7 +1432,6 @@
                         case 'gift': subtext = `[礼物] ${lastMessage.content.name}`; break;
                         case 'couple_invitation': subtext = '[情侣邀请]'; break;
                         case 'delivery_receipt': subtext = '[外卖订单]'; break;
-                        case 'gift_receipt': subtext = '[礼物订单]'; break;
                         case 'voice_call': subtext = '[语音通话]'; break;
                         default: subtext = lastMessage.content.content;
                     }
@@ -1530,7 +1445,7 @@
                             <img src="${avatarSrc}" class="avatar">
                             <div class="details">
                                 <span class="name">${displayName} ${starIcon}</span>
-                                <p class="subtext">${subtext ? String(subtext).substring(0, 25) : '...'}</p>
+                                <p class="subtext">${subtext ? subtext.substring(0, 25) : '...'}</p>
                             </div>
                             <div class="info">
                                 <span>${displayTime}</span>
@@ -1700,24 +1615,14 @@
             let displayName;
             if (chatType === 'group') {
                 chat = appData.groups.find(g => g.id == chatId);
-                // ▲▲▲ 防火墙：处理群聊不存在的情况 ▲▲▲
-                if (!chat) {
-                    alert("错误：找不到该群聊。");
-                    goBack();
-                    return;
-                }
                 displayName = `${chat.name} (${chat.members.length})`;
             } else {
                 chat = appData.contacts.find(c => c.id == chatId);
-                // ▲▲▲ 防火墙：处理联系人不存在的情况 ▲▲▲
-                if (!chat) {
-                    alert("错误：找不到该联系人。");
-                    goBack();
-                    return;
-                }
                 displayName = chat.remark || chat.name;
             }
             
+            if (!chat) { goBack(); return; }
+
             container.innerHTML = `
                 <div class="wechat-header">
                     <div class="header-left header-back-btn" onclick="goBack()">
@@ -1805,7 +1710,7 @@
             document.getElementById('plus-music-btn').onclick = () => showPage('music-library-page', renderMusicLibraryPage);
             document.getElementById('plus-code-btn').onclick = () => showHtmlContentModal(chatId, chatType);
             document.getElementById('plus-diary-btn').onclick = () => showPage('diary-page', renderDiaryPage, chatId);
-            document.getElementById('plus-gift-btn').onclick = () => openGiftShopModal(chatId, chatType);
+            document.getElementById('plus-gift-btn').onclick = () => showGiftShopModal(chatId, chatType);
             document.getElementById('plus-couple-btn').onclick = () => sendCoupleInvitation(chatId, chatType);
             document.getElementById('plus-delivery-btn').onclick = () => openDeliveryModal(chatId, chatType);
             document.getElementById('plus-voice-call-btn').onclick = () => startVoiceCall(chatId, chatType, 'user');
@@ -1882,17 +1787,10 @@
             });
         }
 
-        // ▲▲▲ 代码分离：消息渲染主函数 ▲▲▲
         function renderMessages(chatId, chatType) {
             const container = document.getElementById('message-area');
             let chat = chatType === 'group' ? appData.groups.find(g => g.id == chatId) : appData.contacts.find(c => c.id == chatId);
-            
-            // ▲▲▲ 防火墙：渲染前检查 ▲▲▲
-            if (!container || !chat) {
-                console.error(`Firewall: Cannot render messages for chat ID ${chatId}. Container or chat data is missing.`);
-                if(container) container.innerHTML = `<div style="text-align:center; padding: 50px; color:red;">无法加载聊天记录，数据可能已损坏。</div>`;
-                return;
-            }
+            if (!container || !chat) return;
             
             let html = `
                 <div class="chat-scroll-buttons">
@@ -1901,10 +1799,7 @@
                 </div>
             `;
             let lastTimestamp = 0;
-            (chat.conversation || []).forEach((msg) => {
-                // ▲▲▲ 防火墙：跳过无效消息 ▲▲▲
-                if (!msg || !msg.type || !msg.content) return;
-
+            (chat.conversation || []).forEach((msg, index) => {
                 if (appData.settings.timestampStyle === 'center' && msg.timestamp - lastTimestamp > 5 * 60 * 1000) {
                     html += `<div class="message-timestamp">${new Date(msg.timestamp).toLocaleString()}</div>`;
                     lastTimestamp = msg.timestamp;
@@ -1925,15 +1820,127 @@
                 if (!senderObj) return;
 
                 const avatar = senderObj.avatar;
-                const bubbleHtml = renderMessageBubble(msg, isSent, chatType);
-                
+                let bubbleContent = '';
+                let bubbleClass = '';
+                let additionalContent = '';
+                let additionalAttributes = '';
                 let timestampHtml = '';
+
                 const msgTime = new Date(msg.timestamp);
                 const timeString = msgTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit'});
 
                 switch (appData.settings.timestampStyle) {
                     case 'bubble-outside': timestampHtml = `<div class="message-timestamp-under" style="text-align: ${isSent ? 'right' : 'left'};">${timeString}</div>`; break;
                     case 'avatar-under': timestampHtml = `<div class="message-timestamp-under" style="text-align: center;">${timeString}</div>`; break;
+                }
+
+                switch(msg.type) {
+                    case 'image': bubbleContent = `<img src="${msg.content.url}" alt="image">`; bubbleClass = 'image-bubble'; break;
+                    case 'sticker': bubbleContent = `<img src="${msg.content.url}" class="sticker-message" alt="sticker">`; bubbleClass = 'sticker-message'; break;
+                    case 'voice':
+                        bubbleContent = `<div class="voice-bubble-content"><div class="waveform">${Array(10).fill('<div class="bar"></div>').join('')}</div> <span>${msg.content.duration}"</span></div>`;
+                        bubbleClass = 'voice-bubble';
+                        if (msg.transcribedText) additionalContent = `<div class="voice-transcribed-bubble">${msg.transcribedText}</div>`;
+                        break;
+                    case 'location':
+                        bubbleContent = `<div class="location-text-wrapper"><div class="location-text">${msg.content.location}</div></div><div class="map-placeholder"><i class="fas fa-map-marked-alt"></i></div>`;
+                        bubbleClass = 'location-bubble';
+                        break;
+                    case 'camera-sim': 
+                        bubbleContent = `<img src="https://img.heliar.top/file/1764050688895_Image_1757235244080.jpg" class="sim-icon"><span class="sim-text">糟糕…图片被本喵吃了໒꒰ྀིㅇㅁㅇ꒱ྀི১</span>`; 
+                        bubbleClass = 'camera-sim-bubble'; 
+                        additionalAttributes = `onclick="handleBubbleClick('camera-sim', ${msg.id}, '${chatId}', '${chatType}')"`;
+                        break;
+                    case 'transfer':
+                        let transferStatusText = '', transferFooter = '微信转账';
+                        if (msg.content.status === 'sent') { transferStatusText = isSent ? '已转账' : '请你确认收款'; } 
+                        else if (msg.content.status === 'claimed') { transferStatusText = '已收款'; } 
+                        else if (msg.content.status === 'returned') { transferStatusText = '已退回'; }
+                        if (chatType === 'group') transferFooter = `转账给 ${chat.members.find(m => m.id == msg.content.recipientId)?.name || '成员'}`;
+                        bubbleContent = `<div class="main"><i class="fas fa-exchange-alt icon"></i><div class="details"><span class="amount">¥${parseFloat(msg.content.amount).toFixed(2)}</span><span class="remark">${transferStatusText}</span></div></div><div class="footer">${transferFooter}</div>`;
+                        bubbleClass = 'transfer-bubble';
+                        additionalAttributes = `onclick="handleBubbleClick('transfer', ${msg.id}, '${chatId}', '${chatType}')"`;
+                        break;
+                    case 'redPacket':
+                        let packetStatus = msg.content.claimed.includes(appData.user.id) ? '已领取' : '点击领取红包';
+                        if (msg.content.claimed.length >= msg.content.count) packetStatus = '红包已被领完';
+                        bubbleContent = `<div class="main"><i class="fas fa-envelope icon"></i><div class="details"><span class="remark">${msg.content.remark}</span><span class="amount" style="font-size: 14px;">${isSent ? '查看红包' : packetStatus}</span></div></div><div class="footer">微信红包</div>`;
+                        bubbleClass = 'redpacket-bubble';
+                        additionalAttributes = `onclick="handleBubbleClick('redPacket', ${msg.id}, '${chatId}', '${chatType}')"`;
+                        break;
+                    case 'forward':
+                        const originalChat = appData.groups.find(g => g.id == msg.content.originalChatId) || appData.contacts.find(c => c.id == msg.content.originalChatId);
+                        let forwardTitle = '聊天记录';
+                        if (originalChat) {
+                            if (msg.content.originalChatType === 'group') {
+                                forwardTitle = `${originalChat.name}的聊天记录`;
+                            } else {
+                                const otherUser = msg.content.messages.find(m => m.sender !== appData.user.id)?.sender;
+                                const otherContact = appData.contacts.find(c => c.id == otherUser);
+                                const otherName = otherContact ? (otherContact.remark || otherContact.name) : '对方';
+                                forwardTitle = `${otherName}和${appData.user.nickname}的聊天记录`;
+                            }
+                        }
+                        bubbleContent = `<i class="fas fa-comment-alt"></i> <span>[${forwardTitle}]</span>`;
+                        bubbleClass = 'forwarded-message-bubble';
+                        additionalAttributes = `onclick="showForwardedContentModal(event, ${msg.id}, '${chatId}', '${chatType}')"`;
+                        break;
+                    case 'music':
+                        bubbleContent = `<img src="${msg.content.cover}" alt="cover"><div class="details"><div class="title">${msg.content.title}</div><div class="artist">${msg.content.artist}</div></div>`;
+                        bubbleClass = 'music-bubble';
+                        additionalAttributes = `onclick="handleBubbleClick('music', ${msg.id}, '${chatId}', '${chatType}')"`;
+                        break;
+                    case 'html-content':
+                        bubbleContent = `<iframe srcdoc="${escapeSrcDoc(msg.content.code)}" class="html-content-iframe" sandbox="allow-scripts allow-same-origin"></iframe>`;
+                        bubbleClass = 'html-content-bubble';
+                        break;
+                    case 'gift':
+                        bubbleContent = `<i class="fas fa-gift icon"></i><div class="details"><div class="name">${msg.content.name}</div><div class="desc">${msg.content.desc}</div></div>`;
+                        bubbleClass = 'gift-bubble';
+                        break;
+                    case 'couple_invitation':
+                        const inviterName = msg.sender === appData.user.id ? appData.user.nickname : (chat.remark || chat.name);
+                        bubbleContent = `<i class="fas fa-heartbeat icon"></i><div class="text">${inviterName} 想与你成为情侣</div>`;
+                        if (!isSent) {
+                            bubbleContent += `<div class="actions"><button class="accept-btn" onclick="respondToCoupleInvitation(${msg.id}, true, '${chatId}', '${chatType}')">同意</button><button onclick="respondToCoupleInvitation(${msg.id}, false, '${chatId}', '${chatType}')">拒绝</button></div>`;
+                        }
+                        bubbleClass = 'couple-invitation-bubble';
+                        break;
+                    case 'delivery_receipt':
+                        const receiptItems = msg.content.items.map(item => `<div class="item-row"><span>${item.name} x${item.quantity}</span><span>¥${(item.price * item.quantity).toFixed(2)}</span></div>`).join('');
+                        bubbleContent = `
+                            <div class="header">外卖订单</div>
+                            <div class="items">${receiptItems}</div>
+                            <div class="total"><span>总计</span><span>¥${msg.content.total.toFixed(2)}</span></div>
+                            <div class="footer">订单已送达</div>
+                        `;
+                        bubbleClass = 'delivery-receipt-bubble';
+                        break;
+                    case 'voice_call':
+                        bubbleContent = `<i class="fas fa-phone-alt"></i> 语音通话 <span style="margin-left: 10px; color: var(--wechat-text-secondary);">${msg.content.duration}</span>`;
+                        bubbleClass = 'voice-call-bubble';
+                        break;
+                    default: // text
+                        let quotedHtml = '';
+                        if (msg.quotedMessage) {
+                            let quotedSenderName = '未知';
+                            if (chatType === 'group') {
+                                const quotedSender = chat.members.find(m => m.id == msg.quotedMessage.sender);
+                                if (quotedSender) {
+                                    quotedSenderName = quotedSender.remark || quotedSender.name;
+                                }
+                            } else {
+                                quotedSenderName = msg.quotedMessage.sender === appData.user.id ? appData.user.nickname : (chat.remark || chat.name);
+                            }
+                            quotedHtml = `<div class="quoted-message"><p><strong>${quotedSenderName}:</strong> ${msg.quotedMessage.content.substring(0, 30)}...</p></div>`;
+                        }
+                        bubbleContent = `${quotedHtml}${msg.content.content}`;
+                        if (msg.translatedText) additionalContent = `<div class="translated-text-bubble">${msg.translatedText}</div>`;
+                        break;
+                }
+
+                if (appData.settings.timestampStyle === 'bubble-inside') {
+                    bubbleContent += `<div class="message-timestamp-inside" style="text-align: ${isSent ? 'right' : 'left'};">${timeString}</div>`;
                 }
 
                 html += `
@@ -1945,7 +1952,8 @@
                                 ${appData.settings.timestampStyle === 'avatar-under' ? timestampHtml : ''}
                             </div>
                             <div class="message-content-wrapper">
-                                ${bubbleHtml}
+                                <div class="message-bubble ${bubbleClass}" ondblclick="showMessageContextMenu(event, ${msg.id}, '${chatId}', '${chatType}')" ${additionalAttributes}>${bubbleContent}</div>
+                                ${additionalContent}
                                 ${appData.settings.timestampStyle === 'bubble-outside' ? timestampHtml : ''}
                             </div>
                         </div>
@@ -1955,141 +1963,6 @@
             container.innerHTML = html;
             container.scrollTop = container.scrollHeight;
         }
-
-        // ▲▲▲ 代码分离：消息气泡渲染路由 ▲▲▲
-        function renderMessageBubble(msg, isSent, chatType) {
-            let bubbleContent = '', bubbleClass = '', additionalContent = '', additionalAttributes = '';
-            const renderer = isSent ? sentBubbleRenderers : receivedBubbleRenderers;
-
-            switch(msg.type) {
-                case 'text': bubbleContent = renderer.text(msg); break;
-                case 'image': bubbleContent = renderer.image(msg); bubbleClass = 'image-bubble'; break;
-                case 'sticker': bubbleContent = renderer.sticker(msg); bubbleClass = 'sticker-message'; break;
-                case 'voice': 
-                    bubbleContent = renderer.voice(msg); 
-                    bubbleClass = 'voice-bubble';
-                    if (msg.transcribedText) additionalContent = `<div class="voice-transcribed-bubble">${msg.transcribedText}</div>`;
-                    break;
-                case 'location': bubbleContent = renderer.location(msg); bubbleClass = 'location-bubble'; break;
-                case 'camera-sim': 
-                    bubbleContent = renderer.cameraSim(msg); 
-                    bubbleClass = 'camera-sim-bubble'; 
-                    additionalAttributes = `onclick="handleBubbleClick('camera-sim', ${msg.id}, '${appData.activeChat.id}', '${chatType}')"`;
-                    break;
-                case 'transfer': 
-                    bubbleContent = renderer.transfer(msg, chatType); 
-                    bubbleClass = 'transfer-bubble';
-                    additionalAttributes = `onclick="handleBubbleClick('transfer', ${msg.id}, '${appData.activeChat.id}', '${chatType}')"`;
-                    break;
-                case 'redPacket': 
-                    bubbleContent = renderer.redPacket(msg, chatType); 
-                    bubbleClass = 'redpacket-bubble';
-                    additionalAttributes = `onclick="handleBubbleClick('redPacket', ${msg.id}, '${appData.activeChat.id}', '${chatType}')"`;
-                    break;
-                case 'forward': 
-                    bubbleContent = renderer.forward(msg); 
-                    bubbleClass = 'forwarded-message-bubble';
-                    additionalAttributes = `onclick="showForwardedContentModal(event, ${msg.id}, '${appData.activeChat.id}', '${chatType}')"`;
-                    break;
-                case 'music': 
-                    bubbleContent = renderer.music(msg); 
-                    bubbleClass = 'music-bubble';
-                    additionalAttributes = `onclick="handleBubbleClick('music', ${msg.id}, '${appData.activeChat.id}', '${chatType}')"`;
-                    break;
-                case 'html-content': bubbleContent = renderer.htmlContent(msg); bubbleClass = 'html-content-bubble'; break;
-                case 'gift': bubbleContent = renderer.gift(msg); bubbleClass = 'gift-bubble'; break;
-                case 'couple_invitation': bubbleContent = renderer.coupleInvitation(msg, chatType); bubbleClass = 'couple-invitation-bubble'; break;
-                case 'delivery_receipt': bubbleContent = renderer.receipt(msg, '外卖订单', 'fa-utensils'); bubbleClass = 'receipt-bubble'; break;
-                case 'gift_receipt': bubbleContent = renderer.receipt(msg, '礼物清单', 'fa-gift'); bubbleClass = 'receipt-bubble'; break;
-                case 'voice_call': bubbleContent = renderer.voiceCall(msg); bubbleClass = 'voice-call-bubble'; break;
-                default: bubbleContent = `[不支持的消息类型: ${msg.type}]`;
-            }
-
-            if (msg.translatedText) additionalContent += `<div class="translated-text-bubble">${msg.translatedText}</div>`;
-            if (appData.settings.timestampStyle === 'bubble-inside') {
-                const timeString = new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit'});
-                bubbleContent += `<div class="message-timestamp-inside" style="text-align: ${isSent ? 'right' : 'left'};">${timeString}</div>`;
-            }
-
-            return `<div class="message-bubble ${bubbleClass}" ondblclick="showMessageContextMenu(event, ${msg.id}, '${appData.activeChat.id}', '${chatType}')" ${additionalAttributes}>${bubbleContent}</div>${additionalContent}`;
-        }
-
-        // ▲▲▲ 代码分离：发送方气泡渲染器集合 ▲▲▲
-        const sentBubbleRenderers = {
-            text: msg => {
-                let quotedHtml = '';
-                if (msg.quotedMessage) {
-                    const chat = appData.activeChat.type === 'group' ? appData.groups.find(g => g.id == appData.activeChat.id) : appData.contacts.find(c => c.id == appData.activeChat.id);
-                    let quotedSenderName = '未知';
-                    if (chat) {
-                        if (appData.activeChat.type === 'group') {
-                            const quotedSender = chat.members.find(m => m.id == msg.quotedMessage.sender);
-                            if (quotedSender) quotedSenderName = quotedSender.name;
-                        } else {
-                            quotedSenderName = msg.quotedMessage.sender === appData.user.id ? appData.user.nickname : (chat.remark || chat.name);
-                        }
-                    }
-                    quotedHtml = `<div class="quoted-message"><p><strong>${quotedSenderName}:</strong> ${msg.quotedMessage.content.substring(0, 30)}...</p></div>`;
-                }
-                return `${quotedHtml}${msg.content.content}`;
-            },
-            image: msg => `<img src="${msg.content.url}" alt="image">`,
-            sticker: msg => `<img src="${msg.content.url}" class="sticker-message" alt="sticker">`,
-            voice: msg => `<div class="voice-bubble-content"><div class="waveform">${Array(10).fill('<div class="bar"></div>').join('')}</div> <span>${msg.content.duration}"</span></div>`,
-            location: msg => `<div class="location-text-wrapper"><div class="location-text">${msg.content.location}</div></div><div class="map-placeholder"><i class="fas fa-map-marked-alt"></i></div>`,
-            cameraSim: msg => `<img src="https://img.heliar.top/file/1764050688895_Image_1757235244080.jpg" class="sim-icon"><span class="sim-text">糟糕…图片被本喵吃了໒꒰ྀིㅇㅁㅇ꒱ྀི১</span>`,
-            transfer: (msg, chatType) => {
-                const chat = chatType === 'group' ? appData.groups.find(g => g.id == appData.activeChat.id) : null;
-                const recipientName = chat ? (chat.members.find(m => m.id == msg.content.recipientId)?.name || '成员') : '对方';
-                return `<div class="main"><i class="fas fa-exchange-alt icon"></i><div class="details"><span class="amount">¥${parseFloat(msg.content.amount).toFixed(2)}</span><span class="remark">已转账</span></div></div><div class="footer">转账给 ${recipientName}</div>`;
-            },
-            redPacket: msg => `<div class="main"><i class="fas fa-envelope icon"></i><div class="details"><span class="remark">${msg.content.remark}</span><span class="amount" style="font-size: 14px;">查看红包</span></div></div><div class="footer">微信红包</div>`,
-            forward: msg => {
-                const originalChat = appData.groups.find(g => g.id == msg.content.originalChatId) || appData.contacts.find(c => c.id == msg.content.originalChatId);
-                let forwardTitle = '聊天记录';
-                if (originalChat) {
-                    if (msg.content.originalChatType === 'group') {
-                        forwardTitle = `${originalChat.name}的聊天记录`;
-                    } else {
-                        const otherUser = msg.content.messages.find(m => m.sender !== appData.user.id)?.sender;
-                        const otherContact = appData.contacts.find(c => c.id == otherUser);
-                        const otherName = otherContact ? (otherContact.remark || otherContact.name) : '对方';
-                        forwardTitle = `${otherName}和${appData.user.nickname}的聊天记录`;
-                    }
-                }
-                return `<i class="fas fa-comment-alt"></i> <span>[${forwardTitle}]</span>`;
-            },
-            music: msg => `<img src="${msg.content.cover}" alt="cover"><div class="details"><div class="title">${msg.content.title}</div><div class="artist">${msg.content.artist}</div></div>`,
-            htmlContent: msg => `<iframe srcdoc="${escapeSrcDoc(msg.content.code)}" class="html-content-iframe" sandbox="allow-scripts allow-same-origin"></iframe>`,
-            gift: msg => `<i class="fas fa-gift icon"></i><div class="details"><div class="name">${msg.content.name}</div><div class="desc">${msg.content.desc}</div></div>`,
-            coupleInvitation: msg => `<i class="fas fa-heartbeat icon"></i><div class="text">${appData.user.nickname} 想与你成为情侣</div>`,
-            receipt: (msg, title, icon) => {
-                const itemsHtml = msg.content.items.map(item => `<div class="item-row"><span>${item.name} x${item.quantity}</span><span>¥${(item.price * item.quantity).toFixed(2)}</span></div>`).join('');
-                return `<div class="header"><i class="fas ${icon}"></i>${title}</div><div class="items">${itemsHtml}</div><div class="total"><span>总计</span><span>¥${msg.content.total.toFixed(2)}</span></div><div class="footer">订单已送达</div>`;
-            },
-            voiceCall: msg => `<i class="fas fa-phone-alt"></i> 语音通话 <span style="margin-left: 10px; color: var(--wechat-text-secondary);">${msg.content.duration}</span>`
-        };
-
-        // ▲▲▲ 代码分离：接收方气泡渲染器集合 ▲▲▲
-        const receivedBubbleRenderers = {
-            ...sentBubbleRenderers, // 继承大部分渲染逻辑
-            transfer: (msg, chatType) => {
-                let statusText = '请你确认收款';
-                if (msg.content.status === 'claimed') statusText = '已收款';
-                else if (msg.content.status === 'returned') statusText = '已退回';
-                return `<div class="main"><i class="fas fa-exchange-alt icon"></i><div class="details"><span class="amount">¥${parseFloat(msg.content.amount).toFixed(2)}</span><span class="remark">${statusText}</span></div></div><div class="footer">微信转账</div>`;
-            },
-            redPacket: msg => {
-                let packetStatus = msg.content.claimed.includes(appData.user.id) ? '已领取' : '点击领取红包';
-                if (msg.content.claimed.length >= msg.content.count) packetStatus = '红包已被领完';
-                return `<div class="main"><i class="fas fa-envelope icon"></i><div class="details"><span class="remark">${msg.content.remark}</span><span class="amount" style="font-size: 14px;">${packetStatus}</span></div></div><div class="footer">微信红包</div>`;
-            },
-            coupleInvitation: (msg, chatType) => {
-                const chat = appData.contacts.find(c => c.id == appData.activeChat.id);
-                const inviterName = chat ? (chat.remark || chat.name) : '对方';
-                return `<i class="fas fa-heartbeat icon"></i><div class="text">${inviterName} 想与你成为情侣</div><div class="actions"><button class="accept-btn" onclick="respondToCoupleInvitation(${msg.id}, true, '${appData.activeChat.id}', '${chatType}')">同意</button><button onclick="respondToCoupleInvitation(${msg.id}, false, '${appData.activeChat.id}', '${chatType}')">拒绝</button></div>`;
-            }
-        };
         
         function renderWalletPage(container) {
             const wallet = appData.user.wallet;
@@ -3345,7 +3218,7 @@
             if (!chat) return;
             if (!chat.conversation) chat.conversation = [];
 
-            // ▲▲▲ 防火墙：禁言检查 ▲▲▲
+            // 禁言检查
             if (chatType === 'group') {
                 const now = Date.now();
                 const userMuteInfo = chat.mutedMembers[appData.user.id];
@@ -3385,7 +3258,7 @@
             renderMessages(chatId, chatType);
             
             // AI Reply Logic
-            const shouldReply = ['text', 'image', 'camera-sim', 'location', 'voice', 'sticker', 'transfer', 'redPacket', 'music', 'html-content', 'gift', 'couple_invitation', 'delivery_receipt', 'gift_receipt'].includes(type);
+            const shouldReply = ['text', 'image', 'camera-sim', 'location', 'voice', 'sticker', 'transfer', 'redPacket', 'music', 'html-content', 'gift', 'couple_invitation'].includes(type);
             if (chatType === 'individual' && shouldReply) {
                 setTypingIndicator(chatId, true);
                 const replies = await getAiReply(chat.id);
@@ -3464,19 +3337,10 @@
             }
         }
 
-        let aiReplyController = null;
+        let aiReplyController = null; // [新增]
         async function getAiReply(senderId, customPrompt = null, groupId = null) {
             const contact = appData.contacts.find(c => c.id == senderId);
-            // ▲▲▲ 防火墙：AI回复前检查 ▲▲▲
-            if (!contact) {
-                console.error(`Firewall: AI reply requested for non-existent contact ID ${senderId}.`);
-                return ["(错误: 无法找到AI角色)"];
-            }
-            const { key, model } = appData.settings.api;
-            if (!key || !model) {
-                console.warn(`Firewall: API settings are incomplete. AI reply is disabled.`);
-                return ["(提示: API未配置，AI无法回复)"];
-            }
+            if (!contact) return ["(AI角色不存在)"];
 
             let chatHistory = [];
             let lastMessage;
@@ -3524,7 +3388,6 @@
                         case 'gift': contentText = `[${m.sender === appData.user.id ? '我' : '你'}赠送了礼物: ${m.content.name}]`; break;
                         case 'couple_invitation': contentText = `[${m.sender === appData.user.id ? '我' : '你'}发起了情侣邀请]`; break;
                         case 'delivery_receipt': contentText = `[${m.sender === appData.user.id ? '我' : '你'}点了一份外卖]`; break;
-                        case 'gift_receipt': contentText = `[${m.sender === appData.user.id ? '我' : '你'}购买了礼物]`; break;
                         case 'voice_call': contentText = `[语音通话，时长: ${m.content.duration}]`; break;
                         default: contentText = `[${m.sender === appData.user.id ? '我' : '你'}发送了一个${m.type}]`; break;
                     }
@@ -3637,6 +3500,9 @@
 
         async function callApi(messages, signal) {
             const { endpoint, key, model, provider, temperature, top_p, repetition_penalty } = appData.settings.api;
+            if (!key || !model) {
+                throw new Error("API设置未配置或不完整。请在设置中配置。");
+            }
             
             const providerEndpoints = {
                 'openai': 'https://api.openai.com/v1', 'claude': 'https://api.anthropic.com/v1', 'gemini': 'https://generativelanguage.googleapis.com/v1beta',
@@ -3652,7 +3518,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
                 body: JSON.stringify({ model, messages, temperature, top_p, repetition_penalty }),
-                signal
+                signal // [新增]
             });
 
             if (!response.ok) {
@@ -3806,10 +3672,7 @@
             let itemsHtml = `<div class="context-menu-item" onclick="handleMessageAction('edit', ${messageId}, '${chatId}', '${chatType}')">编辑</div>`;
             itemsHtml += `<div class="context-menu-item" onclick="handleMessageAction('quote', ${messageId}, '${chatId}', '${chatType}')">引用</div>`;
             if (message.type === 'text' || message.type === 'voice') {
-                const languages = {
-                    'zh-CN': '简体中文', 'zh-TW': '繁体中文',
-                    de:'德语',en:'英语',fr:'法语',ru:'俄语',pt:'葡萄牙语',yue:'粤语',ja:'日语',ko:'韩语',th:'泰语',it:'意大利语',fa:'波斯语',vi:'越南语'
-                };
+                const languages = {de:'德语',en:'英语',fr:'法语',ru:'俄语',pt:'葡萄牙语',yue:'粤语',ja:'日语',ko:'韩语',th:'泰语',it:'意大利语',fa:'波斯语',vi:'越南语'};
                 let langSubmenu = '';
                 for (const [code, name] of Object.entries(languages)) {
                     langSubmenu += `<div class="context-menu-item" onclick="handleMessageAction('translate', ${messageId}, '${chatId}', '${chatType}', { lang: '${code}', langName: '${name}' })">${name}</div>`;
@@ -3893,7 +3756,6 @@
         }
 
         async function getTranslationFromApi(text, targetLang) {
-            // ▲▲▲ 防火墙：API翻译前检查 ▲▲▲
             const { key, model } = appData.settings.api;
             if (!key || !model) {
                 throw new Error("API未配置，无法翻译。");
@@ -4420,21 +4282,17 @@
         }
 
         async function exportData() {
-            try {
-                const allData = await dataManager.exportAllData();
-                const dataStr = JSON.stringify(allData);
-                const dataBlob = new Blob([dataStr], {type: "application/json"});
-                const url = URL.createObjectURL(dataBlob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `LovelyPhone热心提醒你一定要勤备份哦ㅇㅅㅇ_${new Date().toISOString().slice(0,10)}.json`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            } catch (error) {
-                alert(`▲▲▲ 防火墙警告：数据导出失败！\n${error.message}`);
-            }
+            const allData = await dataManager.exportAllData();
+            const dataStr = JSON.stringify(allData);
+            const dataBlob = new Blob([dataStr], {type: "application/json"});
+            const url = URL.createObjectURL(dataBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `LovelyPhone热心提醒你一定要勤备份哦ㅇㅅㅇ_${new Date().toISOString().slice(0,10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         async function importData(event) {
@@ -4446,16 +4304,15 @@
             reader.onload = async (e) => {
                 try {
                     const importedData = JSON.parse(e.target.result);
-                    // ▲▲▲ 防火墙：导入数据结构验证 ▲▲▲
                     if (importedData.appData && importedData.appData.user && importedData.appData.contacts) {
                         await dataManager.importFromBackup(importedData);
                         alert('数据恢复成功！应用将重新加载。');
                         location.reload();
                     } else {
-                        throw new Error('文件格式不正确或数据结构不完整。');
+                        alert('文件格式不正确或数据结构不完整，恢复失败。');
                     }
                 } catch (err) {
-                    alert(`▲▲▲ 防火墙警告：数据恢复失败！\n${err.message}`);
+                    alert('解析文件失败：' + err.message);
                 }
             };
             reader.readAsText(file);
@@ -5006,7 +4863,8 @@
         }
 
         function forwardMusic(songId) {
-            const song = appData.music.library.find(s => s.id === songId);if (!song) return;
+            const song = appData.music.library.find(s => s.id === songId);
+            if (!song) return;
             if (appData.activeChat.id) {
                 sendMessage(appData.activeChat.id, appData.activeChat.type, { id: song.id, title: song.title, artist: song.artist, cover: song.cover }, 'music');
                 alert('音乐已分享到当前聊天');
@@ -5113,7 +4971,7 @@
         function renderMusicSettingsPage(container) {
             container.innerHTML = `
                 <div class="wechat-header">
-                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
+                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas-left"></i><span>返回</span></div>
                     <span class="header-title">音乐设置</span>
                 </div>
                 <div class="content-area">
@@ -5325,7 +5183,7 @@
             renderWalletPage(document.getElementById('wallet-page'));
         }
 
-        // --- [新增/优化] 新功能函数 ---
+        // --- [新增] 新功能函数 ---
 
         // 全局自定义主题
         function renderGlobalThemeEditorPage(container) {
@@ -5509,7 +5367,7 @@
             closeModal('lqt-action-modal');
         }
 
-        // ▲▲▲ 优化：查看对方余额 (API驱动 + 防火墙) ▲▲▲
+        // 查看对方余额
         async function showCharBalancePage(container, charId) {
             const contact = appData.contacts.find(c => c.id == charId);
             container.innerHTML = `
@@ -5517,8 +5375,8 @@
                     <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
                     <span class="header-title">${contact.name}的余额</span>
                 </div>
-                <div class="content-area" style="padding: 15px; text-align: center;">
-                    <p><i class="fas fa-spinner fa-spin"></i> 正在通过API获取信息，请稍候...</p>
+                <div class="content-area" style="padding: 15px;">
+                    <p>正在通过API获取信息，请稍候...</p>
                 </div>
             `;
             try {
@@ -5533,44 +5391,38 @@
                   ]
                 }`;
                 const balanceDataStr = (await getAiReply(charId, prompt))[0];
-                
-                // ▲▲▲ 防火墙：解析JSON ▲▲▲
-                let balanceData;
-                try {
-                    balanceData = JSON.parse(balanceDataStr);
-                } catch (parseError) {
-                    throw new Error(`API返回格式错误，无法解析为JSON: ${parseError.message}`);
-                }
+                const balanceData = JSON.parse(balanceDataStr);
 
-                // ▲▲▲ 防火墙：验证数据结构 ▲▲▲
-                if (!balanceData || typeof balanceData.bank_balance === 'undefined' || !Array.isArray(balanceData.recent_expenses)) {
-                    throw new Error("API返回的数据结构不符合预期。");
-                }
-
-                container.querySelector('.content-area').innerHTML = `
-                    <div class="list-item"><span>银行卡余额:</span><span class="info">${formatCurrency(parseFloat(balanceData.bank_balance), 'CNY')}</span></div>
-                    <div class="list-item"><span>钱包余额:</span><span class="info">${formatCurrency(parseFloat(balanceData.wallet_balance), 'CNY')}</span></div>
-                    <div class="list-item"><span>支付宝余额:</span><span class="info">${formatCurrency(parseFloat(balanceData.alipay_balance), 'CNY')}</span></div>
-                    <div class="list-divider"></div>
-                    <h3>最近开销记录</h3>
-                    <div class="list-view">
-                        ${balanceData.recent_expenses.map(item => `
-                            <div class="list-item">
-                                <div class="details">
-                                    <span class="name">${item.item}</span>
-                                    <p class="subtext">${item.date}</p>
+                container.innerHTML = `
+                    <div class="wechat-header">
+                        <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
+                        <span class="header-title">${contact.name}的余额</span>
+                    </div>
+                    <div class="content-area" style="padding: 15px;">
+                        <div class="list-item"><span>银行卡余额:</span><span class="info">${formatCurrency(balanceData.bank_balance, 'CNY')}</span></div>
+                        <div class="list-item"><span>钱包余额:</span><span class="info">${formatCurrency(balanceData.wallet_balance, 'CNY')}</span></div>
+                        <div class="list-item"><span>支付宝余额:</span><span class="info">${formatCurrency(balanceData.alipay_balance, 'CNY')}</span></div>
+                        <div class="list-divider"></div>
+                        <h3>最近开销记录</h3>
+                        <div class="list-view">
+                            ${balanceData.recent_expenses.map(item => `
+                                <div class="list-item">
+                                    <div class="details">
+                                        <span class="name">${item.item}</span>
+                                        <p class="subtext">${item.date}</p>
+                                    </div>
+                                    <div class="info" style="color: var(--wechat-red);">${formatCurrency(item.amount, 'CNY')}</div>
                                 </div>
-                                <div class="info" style="color: var(--wechat-red);">${formatCurrency(parseFloat(item.amount), 'CNY')}</div>
-                            </div>
-                        `).join('')}
+                            `).join('')}
+                        </div>
                     </div>
                 `;
             } catch (e) {
-                container.querySelector('.content-area').innerHTML = `<p style="color: red; padding: 20px;">▲▲▲ 防火墙警告：获取余额失败！<br>${e.message}</p>`;
+                container.querySelector('.content-area').innerHTML = `<p style="color: red;">获取余额失败: ${e.message}</p>`;
             }
         }
 
-// 公告栏
+        // 公告栏
         function renderAnnouncementPage(container) {
             container.innerHTML = `
                 <div class="wechat-header">
@@ -5610,257 +5462,47 @@
             `;
         }
 
-        // ▲▲▲ 优化：外卖和礼物功能 (API驱动 + 防火墙) ▲▲▲
-        async function refreshItems(chatId, type, query = '') {
-            const listEl = document.getElementById(`${type}-list`);
+        // 优化外卖和礼物
+        async function refreshDeliveryItems(chatId, query = '') {
+            const listEl = document.getElementById('delivery-food-list');
             if (!listEl) return;
-            listEl.innerHTML = `<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;"><i class="fas fa-spinner fa-spin"></i> 商品加载中...</p>`;
-            
-            const isGift = type === 'gift-shop';
-            const prompt = isGift 
-                ? `请严格按照'礼物名,价格,描述;...'的格式生成36个礼物，描述不超过20字。可以包含吃穿用等各种礼物。例如：'永恒玫瑰,520,一朵永不凋谢的玫瑰;遥控跳蛋,299,小巧强劲，远程遥控;...'. ${query ? `请优先生成与'${query}'相关的礼物。` : ''}`
-                : `请严格按照'商品名,价格;...'的格式生成36个外卖商品。${query ? `请优先生成与'${query}'相关的商品。` : ''}`;
-
+            listEl.innerHTML = '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">商品加载中...</p>';
             try {
+                const prompt = `请严格按照'商品名,价格;商品名,价格;...'的格式生成21个外卖商品。${query ? `请优先生成与'${query}'相关的商品。` : ''}`;
                 const itemsStr = (await getAiReply(chatId, prompt))[0];
-                if (!itemsStr) throw new Error("API未返回任何内容。");
-
                 const items = itemsStr.split(';').map(item => {
-                    const parts = item.split(',');
-                    if (isGift) {
-                        return parts.length >= 3 ? { name: parts[0].trim(), price: parseFloat(parts[1].trim()), desc: parts.slice(2).join(',').trim() } : null;
-                    } else {
-                        return parts.length >= 2 ? { name: parts[0].trim(), price: parseFloat(parts[1].trim()) } : null;
-                    }
+                    const [name, price] = item.split(',');
+                    return name && price ? { name: name.trim(), price: parseFloat(price.trim()) } : null;
                 }).filter(Boolean);
-
-                if (items.length === 0) throw new Error("API返回内容格式不正确，无法解析商品。");
-
-                if (!query && !isGift) appData.delivery.cachedItems = items;
-                renderItems(items, type, chatId);
+                appData.delivery.cachedItems = items;
+                renderDeliveryItems(items);
             } catch(e) {
-                listEl.innerHTML = `<p style="text-align:center; color:red; padding:50px;">▲▲▲ 防火墙警告：商品加载失败！<br>${e.message}</p>`;
+                listEl.innerHTML = `<p style="text-align:center; color:red; padding:50px;">商品加载失败: ${e.message}</p>`;
             }
         }
 
-        function renderItems(items, type, chatId) {
-            const listEl = document.getElementById(`${type}-list`);
-            if (!listEl) return;
-            const isGift = type === 'gift-shop';
-            listEl.innerHTML = items.map(item => `
-                <div class="grid-item">
-                    <img src="https://source.unsplash.com/150x100/?${isGift ? 'gift' : 'food'},${encodeURIComponent(item.name)}" alt="${item.name}">
-                    <div class="info">
-                        <div class="name">${item.name}</div>
-                        ${isGift ? `<div class="desc">${item.desc}</div>` : ''}
-                        <div class="price">${formatCurrency(item.price, appData.user.wallet.currency)}</div>
-                        <button class="action-btn" onclick="${isGift ? `showPurchaseConfirmation('${chatId}', 'gift', '${item.name.replace(/'/g, "\\'")}', ${item.price})` : `addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})`}">
-                            ${isGift ? '赠送' : '加入购物车'}
-                        </button>
-                    </div>
-                </div>
-            `).join('') || '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">未找到相关商品</p>';
-        }
-
-        // 外卖
-        function openDeliveryModal(chatId, chatType) {
-            const content = `
-                <div style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="wechat-header" style="flex-shrink: 0;">
-                        <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
-                        <span class="header-title">外卖</span>
-                        <div class="header-right" onclick="refreshItems('${chatId}', 'delivery')"><i class="fas fa-sync-alt"></i></div>
-                    </div>
-                    <div class="delivery-search-bar" style="flex-shrink: 0;">
-                        <input type="search" placeholder="搜索商家、商品名称" oninput="refreshItems('${chatId}', 'delivery', this.value)">
-                    </div>
-                    <div class="content-area item-grid" id="delivery-list"></div>
-                    <div class="bottom-nav" style="flex-shrink: 0;">
-                        <div class="nav-item active" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
-                        <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
-                        <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
-                    </div>
-                </div>
-            `;
-            showModal('delivery-modal', content, true);
-            refreshItems(chatId, 'delivery');
-        }
-        
-        function renderDeliveryHomePageInModal(chatId) {
-            const modalContent = document.querySelector('#delivery-modal .modal-content');
-            if (!modalContent) return;
-            modalContent.innerHTML = `
-                <div class="wechat-header" style="flex-shrink: 0;">
-                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
-                    <span class="header-title">外卖</span>
-                    <div class="header-right" onclick="refreshItems('${chatId}', 'delivery')"><i class="fas fa-sync-alt"></i></div>
-                </div>
-                <div class="delivery-search-bar" style="flex-shrink: 0;">
-                    <input type="search" placeholder="搜索商家、商品名称" oninput="refreshItems('${chatId}', 'delivery', this.value)">
-                </div>
-                <div class="content-area item-grid" id="delivery-list"></div>
-                <div class="bottom-nav" style="flex-shrink: 0;">
-                    <div class="nav-item active" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
-                    <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
-                    <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
-                </div>
-            `;
-            renderItems(appData.delivery.cachedItems, 'delivery', chatId);
-        }
-
-        function addToCart(name, price) {
-            const cart = appData.delivery.cart || [];
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-            appData.delivery.cart = cart;
-            saveData();
-            alert(`${name} 已加入购物车`);
-        }
-
-        function renderDeliveryCartPageInModal(chatId) {
-            const modalContent = document.querySelector('#delivery-modal .modal-content');
-            if (!modalContent) return;
-            const cart = appData.delivery.cart || [];
-            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-            modalContent.innerHTML = `
-                <div class="wechat-header" style="flex-shrink: 0;">
-                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
-                    <span class="header-title">购物车</span>
-                </div>
-                <div class="content-area order-list">
-                    ${cart.length > 0 ? cart.map(item => `
-                        <div class="list-item">
-                            <div class="details">
-                                <span class="name">${item.name}</span>
-                                <p class="subtext">x ${item.quantity}</p>
-                            </div>
-                            <div class="info">${formatCurrency(item.price * item.quantity, appData.user.wallet.currency)}</div>
+        async function renderGiftShop(chatId, chatType, query = '') {
+            const listEl = document.getElementById('gift-shop-list');
+            listEl.innerHTML = '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">礼物加载中...</p>';
+            try {
+                const prompt = `请严格按照'礼物名,价格,描述;...'的格式生成36个礼物，描述不超过100字。可以包含吃穿用等各种礼物。例如：'永恒玫瑰,520,一朵永不凋谢的玫瑰;遥控跳蛋,299,小巧强劲，远程遥控;...'. ${query ? `请优先生成与'${query}'相关的礼物。` : ''}`;
+                const itemsStr = (await getAiReply(chatId, prompt))[0];
+                const gifts = itemsStr.split(';').map(item => {
+                    const parts = item.split(',');
+                    return parts.length >= 3 ? { name: parts[0].trim(), price: parseFloat(parts[1].trim()), desc: parts.slice(2).join(',').trim() } : null;
+                }).filter(Boolean);
+                listEl.innerHTML = gifts.map(g => `
+                    <div class="food-item">
+                        <div class="info" style="width:100%;">
+                            <div class="name">${g.name}</div>
+                            <p style="font-size:12px; color:var(--wechat-text-secondary);">${g.desc}</p>
+                            <div class="price">${formatCurrency(g.price, appData.user.wallet.currency)}</div>
+                            <button class="add-btn" style="width:auto; padding: 0 10px; border-radius: 8px;" onclick="sendGift('${chatId}', '${chatType}', '${g.name}', ${g.price}, '${g.desc.replace(/'/g, "\\'")}')">赠送</button>
                         </div>
-                    `).join('') : '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">购物车是空的</p>'}
-                </div>
-                ${cart.length > 0 ? `
-                <div style="padding: 10px 15px; border-top: 1px solid var(--wechat-border-color); display:flex; justify-content:space-between; align-items:center; flex-shrink: 0;">
-                    <span>总计: <b style="color:var(--wechat-red); font-size:18px;">${formatCurrency(total, appData.user.wallet.currency)}</b></span>
-                    <button class="form-btn" style="flex:none; padding:10px 20px; margin:0;" onclick="showPurchaseConfirmation('${chatId}', 'delivery')">去结算</button>
-                </div>` : ''}
-                <div class="bottom-nav" style="flex-shrink: 0;">
-                    <div class="nav-item" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
-                    <div class="nav-item active" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
-                    <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
-                </div>
-            `;
-        }
-
-        function renderDeliveryOrdersPageInModal(chatId) {
-            const modalContent = document.querySelector('#delivery-modal .modal-content');
-            if (!modalContent) return;
-            modalContent.innerHTML = `
-                <div class="wechat-header" style="flex-shrink: 0;">
-                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
-                    <span class="header-title">订单</span>
-                </div>
-                <div class="content-area order-list" id="delivery-order-list"></div>
-                <div class="bottom-nav" style="flex-shrink: 0;">
-                    <div class="nav-item" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
-                    <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
-                    <div class="nav-item active" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
-                </div>
-            `;
-            renderDeliveryOrders();
-        }
-
-        function renderDeliveryOrders() {
-            const listEl = document.getElementById('delivery-order-list');
-            if (!listEl) return;
-            listEl.innerHTML = appData.delivery.orders.length === 0 ? '<p style="text-align:center; color:var(--wechat-text-secondary); padding-top:50px;">暂无订单</p>' : appData.delivery.orders.map(o => `
-                <div class="order-item">
-                    <div class="header"><span>订单#${o.id}</span><span>${o.status}</span></div>
-                    <div class="body">
-                        ${o.items.map(i => `<div>${i.name} x${i.quantity}</div>`).join('')}
                     </div>
-                    <div class="footer"><span>总计: ${formatCurrency(o.total, appData.user.wallet.currency)}</span></div>
-                </div>
-            `).join('');
-        }
-
-        // 礼物
-        function openGiftShopModal(chatId, chatType) {
-            const content = `
-                <div style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="wechat-header" style="flex-shrink: 0;">
-                        <div class="header-left header-back-btn" onclick="closeModal('gift-shop-modal')"><i class="fas fa-times"></i></div>
-                        <span class="header-title">礼物商城</span>
-                        <div class="header-right" onclick="refreshItems('${chatId}', 'gift-shop')"><i class="fas fa-sync-alt"></i></div>
-                    </div>
-                    <div class="delivery-search-bar" style="flex-shrink: 0;">
-                        <input type="search" placeholder="搜索礼物" oninput="refreshItems('${chatId}', 'gift-shop', this.value)">
-                    </div>
-                    <div class="content-area item-grid" id="gift-shop-list"></div>
-                </div>
-            `;
-            showModal('gift-shop-modal', content, true);
-            refreshItems(chatId, 'gift-shop');
-        }
-
-        // ▲▲▲ 优化：统一的购买确认流程 ▲▲▲
-        function showPurchaseConfirmation(chatId, type, name, price) {
-            const total = (type === 'delivery') ? appData.delivery.cart.reduce((sum, item) => sum + item.price * item.quantity, 0) : price;
-            const content = `
-                <div class="modal-content" style="padding: 20px;">
-                    <h3 class="modal-title">为谁购买？</h3>
-                    <p style="text-align:center; margin-bottom: 20px;">总计: <b style="color:var(--wechat-red); font-size:18px;">${formatCurrency(total, appData.user.wallet.currency)}</b></p>
-                    <div class="modal-actions" style="flex-direction:column;">
-                        <button class="form-btn" onclick="processOrderPlacement('${chatId}', '${type}', 'user', '${name}', ${price})">给自己买</button>
-                        <button class="form-btn" style="background-color: #aaa;" onclick="processOrderPlacement('${chatId}', '${type}', 'char', '${name}', ${price})">给TA买</button>
-                    </div>
-                </div>
-            `;
-            showModal('purchase-choice-modal', content);
-        }
-
-        function processOrderPlacement(chatId, type, recipient, name, price) {
-            const isGift = type === 'gift';
-            const items = isGift ? [{ name, price, quantity: 1 }] : [...appData.delivery.cart];
-            const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-            if (appData.user.wallet.balance < total) { alert('余额不足！'); return; }
-
-            appData.user.wallet.balance -= total;
-            const orderId = Date.now();
-            const newOrder = { id: orderId, status: '已下单', items, total, recipient, timestamp: Date.now() };
-            
-            const receiptType = isGift ? 'gift_receipt' : 'delivery_receipt';
-            const transactionType = isGift ? '赠送礼物' : '外卖';
-            
-            appData.user.wallet.transactions.push({ type: transactionType, amount: -total, details: `为${recipient === 'user' ? '自己' : 'TA'}购买`, timestamp: Date.now() });
-            
-            if (recipient === 'char') {
-                sendMessage(chatId, 'individual', { items: newOrder.items, total: newOrder.total, recipient }, receiptType);
-            }
-
-            if (!isGift) {
-                appData.delivery.orders.unshift(newOrder);
-                appData.delivery.cart = [];
-                closeModal('delivery-modal');
-            } else {
-                closeModal('gift-shop-modal');
-            }
-            
-            saveData();
-            closeModal('purchase-choice-modal');
-            
-            if (!isGift) {
-                setTimeout(() => {
-                    const order = appData.delivery.orders.find(o => o.id === orderId);
-                    if (order) {
-                        order.status = '已完成';
-                        saveData();
-                    }
-                }, 15000);
+                `).join('');
+            } catch(e) {
+                listEl.innerHTML = `<p style="text-align:center; color:red; padding:50px;">礼物加载失败: ${e.message}</p>`;
             }
         }
 
@@ -5880,6 +5522,28 @@
                     }
                 }
             }
+        }
+
+        // 聊天室滚动优化
+        // (已在 renderConversationPage 和 renderMessages 中添加相关HTML和事件监听)
+
+        // 礼物商店
+        function showGiftShopModal(chatId, chatType) {
+            const content = `
+                <div style="display: flex; flex-direction: column; height: 100%;">
+                    <div class="wechat-header" style="flex-shrink: 0;">
+                        <div class="header-left header-back-btn" onclick="closeModal('gift-shop-modal')"><i class="fas fa-times"></i></div>
+                        <span class="header-title">礼物商城</span>
+                        <div class="header-right" onclick="renderGiftShop('${chatId}', '${chatType}')"><i class="fas fa-sync-alt"></i></div>
+                    </div>
+                    <div class="delivery-search-bar" style="flex-shrink: 0;">
+                        <input type="search" placeholder="搜索礼物" oninput="renderGiftShop('${chatId}', '${chatType}', this.value)">
+                    </div>
+                    <div class="content-area gift-grid" id="gift-shop-list"></div>
+                </div>
+            `;
+            showModal('gift-shop-modal', content, true);
+            renderGiftShop(chatId, chatType);
         }
 
         // User自设
@@ -6018,7 +5682,214 @@
             renderMessages(chatId, chatType);
         }
 
-        // 语言设置
+        // 外卖
+        function openDeliveryModal(chatId, chatType) {
+            const content = `
+                <div style="display: flex; flex-direction: column; height: 100%;">
+                    <div class="wechat-header" style="flex-shrink: 0;">
+                        <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
+                        <span class="header-title">外卖</span>
+                        <div class="header-right" onclick="refreshDeliveryItems('${chatId}')"><i class="fas fa-sync-alt"></i></div>
+                    </div>
+                    <div class="delivery-search-bar" style="flex-shrink: 0;">
+                        <input type="search" placeholder="搜索商家、商品名称" oninput="searchDeliveryItems('${chatId}', this.value)">
+                    </div>
+                    <div class="content-area food-list" id="delivery-food-list"></div>
+                    <div class="bottom-nav" style="flex-shrink: 0;">
+                        <div class="nav-item active" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
+                        <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
+                        <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
+                    </div>
+                </div>
+            `;
+            showModal('delivery-modal', content, true);
+            refreshDeliveryItems(chatId);
+        }
+
+        function renderDeliveryHomePageInModal(chatId) {
+            const modalContent = document.querySelector('#delivery-modal .modal-content');
+            if (!modalContent) return;
+            modalContent.innerHTML = `
+                <div class="wechat-header" style="flex-shrink: 0;">
+                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
+                    <span class="header-title">外卖</span>
+                    <div class="header-right" onclick="refreshDeliveryItems('${chatId}')"><i class="fas fa-sync-alt"></i></div>
+                </div>
+                <div class="delivery-search-bar" style="flex-shrink: 0;">
+                    <input type="search" placeholder="搜索商家、商品名称" oninput="searchDeliveryItems('${chatId}', this.value)">
+                </div>
+                <div class="content-area food-list" id="delivery-food-list"></div>
+                <div class="bottom-nav" style="flex-shrink: 0;">
+                    <div class="nav-item active" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
+                    <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
+                    <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
+                </div>
+            `;
+            renderDeliveryItems(appData.delivery.cachedItems);
+        }
+
+        async function refreshDeliveryItems(chatId, query = '') {
+            const listEl = document.getElementById('delivery-food-list');
+            if (!listEl) return;
+            listEl.innerHTML = '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">商品加载中...</p>';
+            try {
+                const prompt = `请严格按照'商品名,价格;...'的格式生成21个外卖商品。${query ? `请优先生成与'${query}'相关的商品。` : ''}`;
+                const itemsStr = (await getAiReply(chatId, prompt))[0];
+                const items = itemsStr.split(';').map(item => {
+                    const [name, price] = item.split(',');
+                    return name && price ? { name: name.trim(), price: parseFloat(price.trim()) } : null;
+                }).filter(Boolean);
+                if (!query) appData.delivery.cachedItems = items; // Only cache on full refresh
+                renderDeliveryItems(items);
+            } catch(e) {
+                listEl.innerHTML = `<p style="text-align:center; color:red; padding:50px;">商品加载失败: ${e.message}</p>`;
+            }
+        }
+
+        function searchDeliveryItems(chatId, query) {
+            if (!query) {
+                renderDeliveryItems(appData.delivery.cachedItems);
+                return;
+            }
+            refreshDeliveryItems(chatId, query);
+        }
+
+        function renderDeliveryItems(items) {
+            const listEl = document.getElementById('delivery-food-list');
+            if (!listEl) return;
+            listEl.innerHTML = items.map(item => `
+                <div class="food-item">
+                    <img src="https://source.unsplash.com/150x100/?food,${encodeURIComponent(item.name)}" alt="${item.name}">
+                    <div class="info">
+                        <div class="name">${item.name}</div>
+                        <div class="price">${formatCurrency(item.price, appData.user.wallet.currency)}</div>
+                        <button class="add-btn" onclick="addToCart('${item.name}', ${item.price})">+</button>
+                    </div>
+                </div>
+            `).join('') || '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">未找到相关商品</p>';
+        }
+        
+        function addToCart(name, price) {
+            const cart = appData.delivery.cart || [];
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            appData.delivery.cart = cart;
+            saveData();
+            alert(`${name} 已加入购物车`);
+        }
+
+        function renderDeliveryCartPageInModal(chatId) {
+            const modalContent = document.querySelector('#delivery-modal .modal-content');
+            if (!modalContent) return;
+            const cart = appData.delivery.cart || [];
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            modalContent.innerHTML = `
+                <div class="wechat-header" style="flex-shrink: 0;">
+                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
+                    <span class="header-title">购物车</span>
+                </div>
+                <div class="content-area order-list">
+                    ${cart.length > 0 ? cart.map(item => `
+                        <div class="list-item">
+                            <div class="details">
+                                <span class="name">${item.name}</span>
+                                <p class="subtext">x ${item.quantity}</p>
+                            </div>
+                            <div class="info">${formatCurrency(item.price * item.quantity, appData.user.wallet.currency)}</div>
+                        </div>
+                    `).join('') : '<p style="text-align:center; color:var(--wechat-text-secondary); padding:50px;">购物车是空的</p>'}
+                </div>
+                ${cart.length > 0 ? `
+                <div style="padding: 10px 15px; border-top: 1px solid var(--wechat-border-color); display:flex; justify-content:space-between; align-items:center; flex-shrink: 0;">
+                    <span>总计: <b style="color:var(--wechat-red); font-size:18px;">${formatCurrency(total, appData.user.wallet.currency)}</b></span>
+                    <button class="form-btn" style="flex:none; padding:10px 20px; margin:0;" onclick="checkoutCart('${chatId}')">去结算</button>
+                </div>` : ''}
+                <div class="bottom-nav" style="flex-shrink: 0;">
+                    <div class="nav-item" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
+                    <div class="nav-item active" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
+                    <div class="nav-item" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
+                </div>
+            `;
+        }
+
+        function checkoutCart(chatId) {
+            const cart = appData.delivery.cart;
+            if (cart.length === 0) return;
+            const content = `
+                <div class="modal-content" style="padding: 20px;">
+                    <h3 class="modal-title">为谁购买？</h3>
+                    <div class="modal-actions" style="flex-direction:column;">
+                        <button class="form-btn" onclick="processOrderPlacement('${chatId}', 'user')">给自己买</button>
+                        <button class="form-btn" style="background-color: #aaa;" onclick="processOrderPlacement('${chatId}', 'char')">给TA买</button>
+                    </div>
+                </div>
+            `;
+            showModal('checkout-choice-modal', content);
+        }
+
+        function processOrderPlacement(chatId, recipient) {
+            const cart = appData.delivery.cart;
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            if (appData.user.wallet.balance < total) { alert('余额不足！'); return; }
+
+            appData.user.wallet.balance -= total;
+            const orderId = Date.now();
+            const newOrder = { id: orderId, status: '已下单', items: [...cart], total, recipient, timestamp: Date.now() };
+            appData.delivery.orders.unshift(newOrder);
+            appData.delivery.cart = [];
+            
+            sendMessage(chatId, 'individual', { items: newOrder.items, total: newOrder.total, recipient }, 'delivery_receipt');
+            
+            saveData();
+            closeModal('checkout-choice-modal');
+            closeModal('delivery-modal');
+            
+            setTimeout(() => {
+                const order = appData.delivery.orders.find(o => o.id === orderId);
+                if (order) {
+                    order.status = '已完成';
+                    saveData();
+                }
+            }, 15000);
+        }
+
+        function renderDeliveryOrdersPageInModal(chatId) {
+            const modalContent = document.querySelector('#delivery-modal .modal-content');
+            if (!modalContent) return;
+            modalContent.innerHTML = `
+                <div class="wechat-header" style="flex-shrink: 0;">
+                    <div class="header-left header-back-btn" onclick="closeModal('delivery-modal')"><i class="fas fa-times"></i></div>
+                    <span class="header-title">订单</span>
+                </div>
+                <div class="content-area order-list" id="delivery-order-list"></div>
+                <div class="bottom-nav" style="flex-shrink: 0;">
+                    <div class="nav-item" onclick="renderDeliveryHomePageInModal('${chatId}')"><i class="fas fa-store"></i><span>首页</span></div>
+                    <div class="nav-item" onclick="renderDeliveryCartPageInModal('${chatId}')"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
+                    <div class="nav-item active" onclick="renderDeliveryOrdersPageInModal('${chatId}')"><i class="fas fa-box"></i><span>订单</span></div>
+                </div>
+            `;
+            renderDeliveryOrders();
+        }
+
+        function renderDeliveryOrders() {
+            const listEl = document.getElementById('delivery-order-list');
+            if (!listEl) return;
+            listEl.innerHTML = appData.delivery.orders.length === 0 ? '<p style="text-align:center; color:var(--wechat-text-secondary); padding-top:50px;">暂无订单</p>' : appData.delivery.orders.map(o => `
+                <div class="order-item">
+                    <div class="header"><span>订单#${o.id}</span><span>${o.status}</span></div>
+                    <div class="body">
+                        ${o.items.map(i => `<div>${i.name} x${i.quantity}</div>`).join('')}
+                    </div>
+                    <div class="footer"><span>总计: ${formatCurrency(o.total, appData.user.wallet.currency)}</span></div>
+                </div>
+            `).join('');
+        }
+
+        // 角色语言设置
         function renderLanguageSettingsPage(container) {
             const languages = {
                 'zh-CN': '简体中文', 'zh-TW': '繁体中文 (台湾)', 'zh-HK': '繁体中文 (香港)', 'zh-MO': '繁体中文 (澳门)',
@@ -6142,16 +6013,6 @@
             if (player && player.src) {
                 player.currentTime = 0;
                 player.play().catch(e => console.error(`无法播放提示音: ${e.message}`));
-            }
-        }
-        
-        function testNotificationSound(type) {
-            const url = document.getElementById(`sound-url-${type}`).value;
-            if (url) {
-                const testPlayer = new Audio(url);
-                testPlayer.play().catch(e => alert(`试听失败: ${e.message}`));
-            } else {
-                alert('请先设置URL或选择文件。');
             }
         }
 
@@ -6305,7 +6166,7 @@
         }
         
         // --- Initialization ---
-        async function initializeApp() {
+        document.addEventListener('DOMContentLoaded', async () => {
             await dataManager.init();
             await loadData();
             applyBeautifySettings();
@@ -6321,8 +6182,8 @@
             });
             
             checkAndPostCharMoments();
-            if (appData.settings.backgroundInteraction.enabled) startBackgroundInteraction();
-        }
+            if  (appData.settings.backgroundInteraction.enabled) startBackgroundInteraction();
+        });
     </script>
 </body>
 </html>
