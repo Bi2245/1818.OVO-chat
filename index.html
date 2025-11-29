@@ -5096,7 +5096,7 @@
             }
         }
 
-// 公告栏
+   // 公告栏
         function renderAnnouncementPage(container) {
             container.innerHTML = `
                 <div class="wechat-header">
@@ -5117,7 +5117,7 @@
                     <p>为保障良好的创作与交流氛围，请各位用户遵守如下约定：</p>
                     <ol>
                         <li>❌ 禁止任何形式的二次传播（包括但不限于转载、上传至公共平台、分享给非授权用户等），否则会被直接永久拉黑并挂人。</li>
-                        <li>❌ 禁止二次修改、篡改原始内容或程序文件，然后再进行售卖等行为，本小手机暂时纯免费，从2025年11月27日-截止2025年12年31日该小手机免费，从2026年1月1日后来的宝宝可能会小偿3.14r。</li>
+                        <li>❌ 禁止二次修改、篡改原始内容或程序文件，然后再进行售卖等行为，本小手机暂时纯免费，从2025年11月27日-截止2025年12年31日该小手机免费，从2026年1月1日过后截止开放群聊，会直接锁群。</li>
                         <li>❌ 禁止使用本小手机进行任何不良、违规、违法活动，禁止用该小手机导入酒馆角色卡，导入别人的角色卡时务必需要经过授权。</li>
                         <li>❌ 严禁发布或讨论任何涉及政治敏感、违反法律法规及相关政策的内容。</li>
                         <li>✅ 鼓励积极、友善、富有创意的交流与共创，共建温暖社区。</li>
@@ -5136,6 +5136,23 @@
             `;
         }
 
+        // 对方正在输入中
+        function setTypingIndicator(chatId, isTyping, memberName = null) {
+            const convPage = document.getElementById('conversation-page');
+            if (convPage.classList.contains('active') && appData.activeChat.id == chatId) {
+                const titleEl = convPage.querySelector('.header-title');
+                if (isTyping) {
+                    let text = '对方正在输入中...';
+                    if (memberName) text = `${memberName}正在输入中...`;
+                    titleEl.dataset.originalTitle = titleEl.textContent;
+                    titleEl.textContent = text;
+                } else {
+                    if (titleEl.dataset.originalTitle) {
+                        titleEl.textContent = titleEl.dataset.originalTitle;
+                    }
+                }
+            }
+                }
         // 对方正在输入中
         function setTypingIndicator(chatId, isTyping, memberName = null) {
             const convPage = document.getElementById('conversation-page');
