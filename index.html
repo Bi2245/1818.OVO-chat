@@ -29,12 +29,11 @@
             --avatar-shape: 6px;
             --chat-background-image: none;
             --home-screen-background-image: url('https://source.unsplash.com/random/380x820?gradient');
+            --home-screen-time-color: #FFFFFF; /* 新增：主屏幕时间颜色 */
             --player-image: url('https://img.heliar.top/file/1764067235404_Screenshot_2025_1125_183413.png');
             --player-background: url('https://img.heliar.top/file/1764067231296_Screenshot_2025_1125_183056.png');
             --user-custom-font: 'UserCustomFont', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
             --font-size-base: 15px;
-            --global-font-color: var(--wechat-text-primary); /* 新增：全局字体颜色 */
-            --home-screen-time-color: #FFFFFF; /* 新增：主屏时间颜色 */
 
             /* 手机边框变量 */
             --phone-border-color: #111;
@@ -51,9 +50,6 @@
             --app-icon-size: 60px;
             --app-icon-gap: 20px;
             --app-icon-radius: 15px;
-
-            /* 电池图标变量 */
-            --battery-number-color: #000000;
         }
 
         /* --- 主题 --- */
@@ -64,42 +60,40 @@
             --wechat-border-color: #3A3A3C;
             --wechat-text-primary: #EAEAEA;
             --wechat-text-secondary: #8E8E93;
-            --global-font-color: #EAEAEA;
-            --battery-number-color: #FFFFFF;
         }
-        body.dark-mode .list-item, body.dark-mode .me-profile-card, body.dark-mode .me-menu-item, body.dark-mode .chat-input-bar, body.dark-mode .modal-content, body.dark-mode .form-group input, body.dark-mode .form-group textarea, body.dark-mode .form-group select, body.dark-mode .moment-post, body.dark-mode .bank-card { background-color: var(--wechat-nav-bg); color: var(--global-font-color); }
+        body.dark-mode .list-item, body.dark-mode .me-profile-card, body.dark-mode .me-menu-item, body.dark-mode .chat-input-bar, body.dark-mode .modal-content, body.dark-mode .form-group input, body.dark-mode .form-group textarea, body.dark-mode .form-group select, body.dark-mode .moment-post, body.dark-mode .bank-card { background-color: var(--wechat-nav-bg); color: var(--wechat-text-primary); }
         body.dark-mode .message-row.received .message-bubble.text-bubble { background-color: var(--wechat-nav-bg); }
         body.dark-mode .message-row.received .message-bubble.text-bubble::after { background: var(--wechat-nav-bg); }
         body.dark-mode .message-recalled, body.dark-mode .message-system { background: #333; color: var(--wechat-text-secondary); }
         body.dark-mode .list-item:active, body.dark-mode .me-menu-item:active { background-color: #2c2c2c; }
-        body.dark-mode .chat-input-bar input { background: #333; color: var(--global-font-color); }
+        body.dark-mode .chat-input-bar input { background: #333; color: var(--wechat-text-primary); }
         body.dark-mode .chat-plus-menu { background: #252525; }
         body.dark-mode .plus-menu-item .icon { background: #333; border-color: #444; }
-        body.dark-mode .header-back-btn, body.dark-mode .header-title, body.dark-mode .header-right { color: var(--global-font-color); }
+        body.dark-mode .header-back-btn, body.dark-mode .header-title, body.dark-mode .header-right { color: var(--wechat-text-primary); }
         body.dark-mode .tab-item { color: var(--wechat-text-secondary); }
         body.dark-mode .tab-item.active { color: var(--wechat-green); }
         body.dark-mode .message-bubble.camera-sim-bubble, body.dark-mode .message-bubble.location-bubble { background: #2c2c2e; border-color: #3a3a3c; }
         body.dark-mode .message-bubble.location-bubble .map-placeholder { background-color: #3a3a3c; }
         
         /* 可爱樱花粉主题 */
-        body.sakura-pink-mode { --wechat-bg: #FFF0F5; --wechat-nav-bg: #FFC0CB; --wechat-border-color: #FFB6C1; --wechat-text-primary: #333333; --wechat-text-secondary: #8B4513; --wechat-green: #FF69B4; --wechat-blue: #DB7093; --global-font-color: #333333; }
-        body.sakura-pink-mode .list-item, body.sakura-pink-mode .me-profile-card, body.sakura-pink-mode .me-menu-item, body.sakura-pink-mode .chat-input-bar, body.sakura-pink-mode .modal-content, body.sakura-pink-mode .form-group input, body.sakura-pink-mode .form-group textarea, body.sakura-pink-mode .form-group select, body.sakura-pink-mode .moment-post, body.sakura-pink-mode .bank-card { background-color: #FFFFFF; color: var(--global-font-color); }
+        body.sakura-pink-mode { --wechat-bg: #FFF0F5; --wechat-nav-bg: #FFC0CB; --wechat-border-color: #FFB6C1; --wechat-text-primary: #333333; --wechat-text-secondary: #8B4513; --wechat-green: #FF69B4; --wechat-blue: #DB7093; }
+        body.sakura-pink-mode .list-item, body.sakura-pink-mode .me-profile-card, body.sakura-pink-mode .me-menu-item, body.sakura-pink-mode .chat-input-bar, body.sakura-pink-mode .modal-content, body.sakura-pink-mode .form-group input, body.sakura-pink-mode .form-group textarea, body.sakura-pink-mode .form-group select, body.sakura-pink-mode .moment-post, body.sakura-pink-mode .bank-card { background-color: #FFFFFF; color: var(--wechat-text-primary); }
         body.sakura-pink-mode .message-row.sent .message-bubble.text-bubble { background-color: #FFDFE5; }
         body.sakura-pink-mode .message-row.sent .message-bubble.text-bubble::after { background: #FFDFE5; }
         body.sakura-pink-mode .message-row.received .message-bubble.text-bubble { background-color: #FFFFFF; }
         body.sakura-pink-mode .message-row.received .message-bubble.text-bubble::after { background: #FFFFFF; }
 
         /* 透明主题 */
-        body.transparent-mode { --wechat-bg: transparent; --wechat-nav-bg: transparent; --wechat-border-color: rgba(255, 255, 255, 0.2); --wechat-text-primary: #FFFFFF; --wechat-text-secondary: #CCCCCC; --global-font-color: #FFFFFF; }
+        body.transparent-mode { --wechat-bg: transparent; --wechat-nav-bg: transparent; --wechat-border-color: rgba(255, 255, 255, 0.2); --wechat-text-primary: #FFFFFF; --wechat-text-secondary: #CCCCCC; }
         body.transparent-mode .wallet-header { background-color: transparent; }
 
         /* 拟态主题 */
-        body.neumorphic-mode { --wechat-bg: #e0e5ec; --wechat-nav-bg: #e0e5ec; --wechat-border-color: transparent; --wechat-text-primary: #555; --wechat-text-secondary: #999; --global-font-color: #555; }
+        body.neumorphic-mode { --wechat-bg: #e0e5ec; --wechat-nav-bg: #e0e5ec; --wechat-border-color: transparent; --wechat-text-primary: #555; --wechat-text-secondary: #999; }
         body.neumorphic-mode .list-item, body.neumorphic-mode .me-profile-card, body.neumorphic-mode .me-menu-item, body.neumorphic-mode .chat-input-bar, body.neumorphic-mode .modal-content, body.neumorphic-mode .form-group input, body.neumorphic-mode .form-group textarea, body.neumorphic-mode .form-group select, body.neumorphic-mode .moment-post, body.neumorphic-mode .message-bubble, body.neumorphic-mode .wechat-header, body.neumorphic-mode .wechat-tabbar, body.neumorphic-mode .bank-card { background: #e0e5ec; box-shadow: 7px 7px 15px #a3b1c6, -7px -7px 15px #ffffff; border: none; }
         body.neumorphic-mode .message-row.sent .message-bubble { box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; }
 
         /* ^•͈༝•^ฅ 主题 */
-        body.clear-sky-blue-mode { --wechat-bg: #E1F5FE; --wechat-nav-bg: #B3E5FC; --wechat-border-color: #81D4FA; --wechat-text-primary: #01579B; --wechat-text-secondary: #4FC3F7; --wechat-green: #0288D1; --wechat-blue: #03A9F4; --global-font-color: #01579B; }
+        body.clear-sky-blue-mode { --wechat-bg: #E1F5FE; --wechat-nav-bg: #B3E5FC; --wechat-border-color: #81D4FA; --wechat-text-primary: #01579B; --wechat-text-secondary: #4FC3F7; --wechat-green: #0288D1; --wechat-blue: #03A9F4; }
         body.clear-sky-blue-mode .list-item, body.clear-sky-blue-mode .me-profile-card, body.clear-sky-blue-mode .me-menu-item, body.clear-sky-blue-mode .chat-input-bar, body.clear-sky-blue-mode .modal-content, body.clear-sky-blue-mode .form-group input, body.clear-sky-blue-mode .form-group textarea, body.clear-sky-blue-mode .form-group select, body.clear-sky-blue-mode .moment-post, body.clear-sky-blue-mode .bank-card { background-color: #FFFFFF; }
         body.clear-sky-blue-mode .message-row.sent .message-bubble.text-bubble { background-color: #81D4FA; }
         body.clear-sky-blue-mode .message-row.sent .message-bubble.text-bubble::after { background: #81D4FA; }
@@ -107,7 +101,7 @@
         body.clear-sky-blue-mode .message-row.received .message-bubble.text-bubble::after { background: #FFFFFF; }
 
         /* 暗黑深渊 */
-        body.dark-abyss-mode { --wechat-bg: transparent; --wechat-nav-bg: rgba(20, 20, 20, 0.75); --wechat-border-color: rgba(80, 80, 80, 0.5); --wechat-text-primary: #EAEAEA; --wechat-text-secondary: #A0A0A0; --wechat-green: #00E676; --wechat-blue: #64B5F6; --page-bg-general: url('https://img.heliar.top/file/1764067333851_Screenshot_2025_1125_182817.png'); --page-bg-special: url('https://img.heliar.top/file/1764067588537_Screenshot_2025_1125_181851.png'); --global-font-color: #EAEAEA; }
+        body.dark-abyss-mode { --wechat-bg: transparent; --wechat-nav-bg: rgba(20, 20, 20, 0.75); --wechat-border-color: rgba(80, 80, 80, 0.5); --wechat-text-primary: #EAEAEA; --wechat-text-secondary: #A0A0A0; --wechat-green: #00E676; --wechat-blue: #64B5F6; --page-bg-general: url('https://img.heliar.top/file/1764067333851_Screenshot_2025_1125_182817.png'); --page-bg-special: url('https://img.heliar.top/file/1764067588537_Screenshot_2025_1125_181851.png'); }
         body.dark-abyss-mode .screen { background-image: var(--page-bg-general); background-size: cover; background-position: center; }
         body.dark-abyss-mode .page { background-color: transparent; }
         body.dark-abyss-mode #settings-page, body.dark-abyss-mode #wallet-page, body.dark-abyss-mode #moments-page { background-image: var(--page-bg-special); background-size: cover; background-position: center; }
@@ -122,7 +116,7 @@
         @font-face { font-family: 'UserCustomFont'; src: var(--user-custom-font-src); }
         @font-face { font-family: 'DiaryFont'; src: url('https://s3plus.meituan.net/opapisdk/op_ticket_885190757_1756988857890_qdqqd_enpyrq.ttf'); }
 
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #333; margin: 0; font-family: var(--user-custom-font); font-size: var(--font-size-base); color: var(--global-font-color); overflow: hidden; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #333; margin: 0; font-family: var(--user-custom-font); font-size: var(--font-size-base); overflow: hidden; }
 
         /* --- 手机外壳 --- */
         .phone-container { width: var(--phone-width); height: var(--phone-height); background: var(--phone-border-color); border-radius: 44px; box-shadow: var(--phone-shadow), 0 0 0 1px var(--phone-edge-highlight); display: flex; flex-direction: column; overflow: hidden; position: relative; border: var(--phone-border-width) solid var(--phone-border-color); transition: all 0.3s ease; backdrop-filter: var(--phone-backdrop-filter, none); }
@@ -137,7 +131,8 @@
         .status-bar .network-icon i { font-size: 14px; }
         .status-bar .dnd-icon i { font-size: 12px; }
         .battery-container { display: flex; align-items: center; gap: 4px; }
-        .battery-icon { width: 24px; height: 11px; border: 1px solid black; border-radius: 2.5px; position: relative; display: flex; align-items: center; background-size: contain; background-repeat: no-repeat; background-position: center; }
+        .default-battery-wrapper { display: flex; align-items: center; }
+        .battery-icon { width: 24px; height: 11px; border: 1px solid black; border-radius: 2.5px; position: relative; display: flex; align-items: center; }
         body.dark-mode .battery-icon, body.transparent-mode .battery-icon, body.dark-abyss-mode .battery-icon { border-color: white; }
         .battery-icon::after { content: ''; width: 1.5px; height: 4px; background-color: black; border-radius: 0 1px 1px 0; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); }
         body.dark-mode .battery-icon::after, body.transparent-mode .battery-icon::after, body.dark-abyss-mode .battery-icon::after { background-color: white; }
@@ -145,22 +140,23 @@
         body.dark-mode .battery-fill, body.transparent-mode .battery-fill, body.dark-abyss-mode .battery-fill { background-color: white; }
         .battery-fill.charging, .battery-fill.low { background-color: #07C160; }
         .battery-fill.low { background-color: #FA5151; }
-        .battery-percent { font-size: 12px; color: var(--battery-number-color); }
-        .battery-percent.inside { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 9px; color: white; mix-blend-mode: difference; }
-
-        /* --- 底部导航条 --- */
-        .bottom-nav-bar { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 135px; height: 5px; background-color: rgba(0,0,0,0.3); border-radius: 2.5px; z-index: 100; cursor: pointer; }
-        body.dark-mode .bottom-nav-bar, body.transparent-mode .bottom-nav-bar, body.dark-abyss-mode .bottom-nav-bar { background-color: rgba(255,255,255,0.4); }
+        .battery-percent { font-size: 12px; }
+        .battery-icon .battery-percent { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 9px; color: white; mix-blend-mode: difference; }
+        .battery-container.number-outside .battery-percent { order: -1; }
+        .battery-container.number-hidden .battery-percent { display: none; }
+        .custom-battery-icon { display: none; width: 28px; height: 28px; object-fit: contain; }
+        .battery-container.custom-icon .default-battery-wrapper { display: none; }
+        .battery-container.custom-icon .custom-battery-icon { display: block; }
 
         /* --- 页面 & 导航 --- */
         .page { position: absolute; inset: 0; background-color: var(--wechat-bg); display: none; flex-direction: column; z-index: 10; transform: translateX(100%); transition: transform 0.3s ease-in-out; padding-top: 30px; /* 为状态栏留出空间 */ }
         .page.active { display: flex; transform: translateX(0); }
         .page.no-transition { transition: none; }
         .page.sub-page { z-index: 20; }
-        .wechat-header { height: 44px; background-color: var(--wechat-nav-bg); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border-bottom: 0.5px solid var(--wechat-border-color); flex-shrink: 0; position: sticky; top: 0; z-index: 10; color: var(--global-font-color); }
+        .wechat-header { height: 44px; background-color: var(--wechat-nav-bg); display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border-bottom: 0.5px solid var(--wechat-border-color); flex-shrink: 0; position: sticky; top: 0; z-index: 10; color: var(--wechat-text-primary); }
         .header-title { font-size: 17px; font-weight: 600; position: absolute; left: 50%; transform: translateX(-50%); }
-        .header-left, .header-right { display: flex; align-items: center; gap: 15px; font-size: 22px; cursor: pointer; color: var(--global-font-color); }
-        .header-back-btn { font-size: 17px; color: var(--global-font-color); display: flex; align-items: center; gap: 2px; }
+        .header-left, .header-right { display: flex; align-items: center; gap: 15px; font-size: 22px; cursor: pointer; color: var(--wechat-text-primary); }
+        .header-back-btn { font-size: 17px; color: var(--wechat-text-primary); display: flex; align-items: center; gap: 2px; }
         .header-back-btn i { font-size: 20px; }
         .content-area { flex: 1; overflow-y: auto; }
         .content-area::-webkit-scrollbar { width: 4px; }
@@ -173,11 +169,9 @@
 
         /* --- 主屏幕 --- */
         #home-screen-page { background-image: var(--home-screen-background-image); background-size: cover; background-position: center; }
-        #home-screen-page .content-area { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-bottom: 20px; }
-        .home-screen-time { margin-top: 80px; text-align: center; color: var(--home-screen-time-color); text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-        .home-screen-time .time { font-size: 64px; font-weight: 200; }
-        .home-screen-time .date { font-size: 18px; }
-        .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--app-icon-gap); padding: 20px; width: 100%; box-sizing: border-box; }
+        #home-screen-page .content-area { display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 50px 0; }
+        .home-screen-time { font-size: 64px; font-weight: 200; color: var(--home-screen-time-color); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--app-icon-gap); padding: 20px; }
         .app-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; text-align: center; }
         .app-icon .icon-bg { width: var(--app-icon-size); height: var(--app-icon-size); border-radius: var(--app-icon-radius); background-size: cover; background-position: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .app-icon .app-name { font-size: 12px; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
@@ -191,7 +185,7 @@
         .activation-btn { width: 100%; padding: 12px; border: none; border-radius: 10px; background: #FF69B4; color: white; font-size: 16px; cursor: pointer; margin-top: 20px; }
 
         /* --- 聊天气泡分离样式 --- */
-        .message-bubble { position: relative; padding: 10px 14px; font-size: var(--font-size-base); line-height: 1.4; max-width: calc(var(--phone-width) - 120px); word-break: break-word; border-radius: 6px; user-select: none; color: var(--global-font-color); }
+        .message-bubble { position: relative; padding: 10px 14px; font-size: var(--font-size-base); line-height: 1.4; max-width: calc(var(--phone-width) - 120px); word-break: break-word; border-radius: 6px; user-select: none; color: var(--wechat-text-primary); }
         /* 默认文本气泡 */
         .message-row.sent .message-bubble.text-bubble { background: #96d35f; color: #000; }
         .message-row.received .message-bubble.text-bubble { background: #ffffff; color: #000; }
@@ -208,7 +202,7 @@
         .voice-bubble-content .waveform { display: flex; align-items: center; height: 20px; overflow: hidden; }
         .voice-bubble-content .bar { width: 3px; height: 4px; margin: 0 1.5px; border-radius: 2px; animation: wave 1.2s ease-in-out infinite alternate; }
         .message-row.sent .voice-bubble-content .bar { background-color: #000; }
-        .message-row.received .voice-bubble-content .bar { background-color: var(--global-font-color); }
+        .message-row.received .voice-bubble-content .bar { background-color: var(--wechat-text-primary); }
         @keyframes wave { 0% { transform: scaleY(0.2); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0.2); } }
         .voice-bubble-content .duration { font-size: 14px; }
         .message-row.sent .voice-bubble-content .duration { color: #000; }
@@ -225,11 +219,11 @@
         .gift-bubble { background-color: #fff; border: 1px solid #f0f0f0; width: 240px; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .gift-bubble .icon { font-size: 40px; color: #FFB347; }
         .gift-bubble .details { flex: 1; }
-        .gift-bubble .details .name { font-size: 16px; font-weight: 500; color: var(--global-font-color); }
+        .gift-bubble .details .name { font-size: 16px; font-weight: 500; color: var(--wechat-text-primary); }
         .gift-bubble .details .desc { font-size: 13px; color: var(--wechat-text-secondary); margin-top: 4px; }
         body.dark-mode .gift-bubble { background-color: #2c2c2e; border-color: #3a3a3c; }
         /* 聊天记录气泡 */
-        .forwarded-message-bubble { background: #fff; color: var(--global-font-color); padding: 10px 14px; border-radius: 6px; border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .forwarded-message-bubble { background: #fff; color: var(--wechat-text-primary); padding: 10px 14px; border-radius: 6px; border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; cursor: pointer; display: flex; align-items: center; gap: 8px; }
         .forwarded-message-bubble i { font-size: 20px; color: var(--wechat-text-secondary); }
         body.dark-mode .forwarded-message-bubble { background: var(--wechat-nav-bg); border-color: var(--wechat-border-color); }
         /* 小票气泡 */
@@ -247,7 +241,7 @@
         .list-item:active { background-color: var(--wechat-bg); }
         .list-item .avatar { width: 48px; height: 48px; border-radius: var(--avatar-shape); object-fit: cover; }
         .list-item .details { flex: 1; overflow: hidden; }
-        .list-item .details .name { font-size: var(--font-size-base); color: var(--global-font-color); display: flex; align-items: center; gap: 5px; }
+        .list-item .details .name { font-size: var(--font-size-base); color: var(--wechat-text-primary); display: flex; align-items: center; gap: 5px; }
         .list-item .details .name .fa-star { color: #FFC300; font-size: 12px; }
         .list-item .details .subtext { font-size: calc(var(--font-size-base) - 2px); color: var(--wechat-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .list-item .info { text-align: right; font-size: calc(var(--font-size-base) - 3px); color: var(--wechat-text-secondary); }
@@ -259,14 +253,14 @@
         .me-profile-card { display: flex; align-items: center; gap: 20px; padding: 40px 20px 30px; background-color: var(--wechat-nav-bg); cursor: pointer; }
         .me-profile-card .avatar { width: 64px; height: 64px; border-radius: var(--avatar-shape); }
         .me-profile-card .details { flex: 1; }
-        .me-profile-card .details .name { font-size: calc(var(--font-size-base) + 7px); font-weight: 600; margin-bottom: 5px; color: var(--global-font-color); }
+        .me-profile-card .details .name { font-size: calc(var(--font-size-base) + 7px); font-weight: 600; margin-bottom: 5px; color: var(--wechat-text-primary); }
         .me-profile-card .details .wxid { color: var(--wechat-text-secondary); font-size: var(--font-size-base); }
         .me-profile-card .details .signature { font-size: calc(var(--font-size-base) - 1px); color: var(--wechat-text-secondary); margin-top: 5px; }
         .me-profile-card .qr-code { font-size: 20px; color: var(--wechat-text-secondary); }
         .me-menu-item { padding: 15px 20px; display: flex; align-items: center; gap: 20px; background-color: var(--wechat-nav-bg); cursor: pointer; }
         .me-menu-item:active { background-color: var(--wechat-bg); }
         .me-menu-item i { font-size: 24px; color: var(--wechat-blue); width: 24px; text-align: center; }
-        .me-menu-item span { flex: 1; font-size: var(--font-size-base); color: var(--global-font-color); }
+        .me-menu-item span { flex: 1; font-size: var(--font-size-base); color: var(--wechat-text-primary); }
         #conversation-page .content-area { background-color: var(--wechat-bg); padding: 10px; display: flex; flex-direction: column; background-image: var(--chat-background-image); background-size: cover; background-position: center; position: relative; }
         .chat-scroll-buttons { position: absolute; bottom: 10px; right: 10px; display: flex; flex-direction: column; gap: 10px; z-index: 20; }
         .chat-scroll-buttons .scroll-btn { width: 36px; height: 36px; background: rgba(0,0,0,0.3); color: white; border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 16px; }
@@ -293,18 +287,18 @@
         .camera-sim-bubble .sim-text { font-size: 14px; color: #888; }
         .message-bubble.location-bubble { background: #fff; padding: 0; display: flex; flex-direction: column; border: 0.5px solid #eee; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); width: 250px; overflow: hidden; }
         .location-bubble .location-text-wrapper { padding: 10px; }
-        .location-bubble .location-text { font-size: var(--font-size-base); color: var(--global-font-color); word-break: break-all; }
+        .location-bubble .location-text { font-size: var(--font-size-base); color: var(--wechat-text-primary); word-break: break-all; }
         .location-bubble .map-placeholder { height: 100px; width: 100%; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; color: #aaa; font-size: 40px; }
         .couple-invitation-bubble { background-color: #fff; border: 1px solid #f0f0f0; width: 250px; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .couple-invitation-bubble .icon { font-size: 36px; color: #FF69B4; }
-        .couple-invitation-bubble .text { font-size: 15px; color: var(--global-font-color); text-align: center; }
+        .couple-invitation-bubble .text { font-size: 15px; color: var(--wechat-text-primary); text-align: center; }
         .couple-invitation-bubble .actions { display: flex; gap: 15px; margin-top: 10px; }
         .couple-invitation-bubble .actions button { padding: 8px 20px; border-radius: 6px; border: 1px solid var(--wechat-border-color); cursor: pointer; }
         .couple-invitation-bubble .actions .accept-btn { background: var(--wechat-green); color: white; }
         body.dark-mode .couple-invitation-bubble { background-color: #2c2c2e; border-color: #3a3a3c; }
-        .translated-text-bubble, .voice-transcribed-bubble { background: var(--wechat-nav-bg); color: var(--global-font-color); padding: 10px 14px; border-radius: 6px; margin-top: 5px; font-size: calc(var(--font-size-base) - 1px); border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; position: relative; }
+        .translated-text-bubble, .voice-transcribed-bubble { background: var(--wechat-nav-bg); color: var(--wechat-text-primary); padding: 10px 14px; border-radius: 6px; margin-top: 5px; font-size: calc(var(--font-size-base) - 1px); border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; position: relative; }
         .translated-text-bubble::before { content: '[译文]'; font-weight: bold; color: var(--wechat-blue); margin-right: 5px; }
-        .music-bubble { background: #fff; color: var(--global-font-color); padding: 10px 14px; border-radius: 6px; border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; cursor: pointer; }
+        .music-bubble { background: #fff; color: var(--wechat-text-primary); padding: 10px 14px; border-radius: 6px; border: 0.5px solid var(--wechat-border-color); max-width: calc(var(--phone-width) - 120px); word-break: break-word; cursor: pointer; }
         body.dark-mode .music-bubble { background: var(--wechat-nav-bg); border-color: var(--wechat-border-color); }
         .music-bubble { display: flex; align-items: center; gap: 10px; }
         .music-bubble img { width: 40px; height: 40px; border-radius: 4px; }
@@ -317,7 +311,7 @@
         .message-timestamp-inside { font-size: 10px; opacity: 0.7; margin-top: 5px; color: inherit; }
         .message-row.sent .message-bubble .message-timestamp-inside { color: #000; }
         .chat-input-bar { display: flex; align-items: center; padding: 8px 10px; gap: 10px; background: var(--wechat-nav-bg); border-top: 0.5px solid var(--wechat-border-color); }
-        .chat-input-bar input { flex: 1; padding: 8px 12px; border: none; background: var(--wechat-bg); border-radius: 6px; font-size: var(--font-size-base); color: var(--global-font-color); }
+        .chat-input-bar input { flex: 1; padding: 8px 12px; border: none; background: var(--wechat-bg); border-radius: 6px; font-size: var(--font-size-base); color: var(--wechat-text-primary); }
         .chat-input-bar i { font-size: 28px; cursor: pointer; color: var(--wechat-text-secondary); }
         .chat-plus-menu { position: absolute; bottom: 50px; left: 0; right: 0; background: var(--wechat-bg); display: none; grid-template-columns: repeat(4, 1fr); padding: 20px; gap: 20px; z-index: 10; border-top: 0.5px solid var(--wechat-border-color); }
         .plus-menu-item { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: calc(var(--font-size-base) - 3px); color: var(--wechat-text-secondary); cursor: pointer; }
@@ -329,7 +323,7 @@
         .context-menu-item:hover .context-submenu { display: block; }
         .multi-select-toolbar { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: var(--wechat-nav-bg); border-top: 0.5px solid var(--wechat-border-color); display: none; justify-content: space-around; align-items: center; z-index: 1002; }
         .multi-select-toolbar.active { display: flex; }
-        .multi-select-toolbar button { background: none; border: none; font-size: 16px; color: var(--global-font-color); cursor: pointer; }
+        .multi-select-toolbar button { background: none; border: none; font-size: 16px; color: var(--wechat-text-primary); cursor: pointer; }
         .multi-select-toolbar button:disabled { color: var(--wechat-text-secondary); cursor: not-allowed; }
         .message-row.multi-select-mode .message-body::before { content: ''; display: block; width: 20px; height: 20px; border: 1px solid #ccc; border-radius: 50%; margin-right: 10px; align-self: center; flex-shrink: 0; }
         .message-row.multi-select-mode.selected .message-body::before { background-color: var(--wechat-green); border-color: var(--wechat-green); background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3e%3c/svg%3e"); background-position: center; background-repeat: no-repeat; }
@@ -340,19 +334,19 @@
         .form-page .content-area { padding: 15px; background-color: var(--wechat-bg); }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 8px; font-size: calc(var(--font-size-base) - 1px); color: var(--wechat-text-secondary); }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid var(--wechat-border-color); border-radius: 8px; font-size: var(--font-size-base); box-sizing: border-box; background: var(--wechat-nav-bg); color: var(--global-font-color); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid var(--wechat-border-color); border-radius: 8px; font-size: var(--font-size-base); box-sizing: border-box; background: var(--wechat-nav-bg); color: var(--wechat-text-primary); }
         .form-group textarea { min-height: 200px; resize: vertical; }
         .form-btn { display: block; width: 100%; padding: 14px; border: none; border-radius: 8px; font-size: 17px; font-weight: 500; cursor: pointer; background-color: var(--wechat-green); color: white; text-align: center; margin-top: 20px; }
         .file-input { display: none; }
         .avatar-upload-preview { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; cursor: pointer; display: block; margin: 0 auto 20px; border: 1px solid var(--wechat-border-color); }
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: var(--wechat-nav-bg); padding: 20px; border-radius: 12px; width: 85%; max-width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); color: var(--global-font-color); }
+        .modal-content { background: var(--wechat-nav-bg); padding: 20px; border-radius: 12px; width: 85%; max-width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); color: var(--wechat-text-primary); }
         .modal-title { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 20px; }
         .modal-input-group { margin-bottom: 15px; }
         .modal-input-group label { font-size: calc(var(--font-size-base) - 1px); color: var(--wechat-text-secondary); }
-        .modal-input { width: 100%; padding: 10px; border: 1px solid var(--wechat-border-color); border-radius: 6px; box-sizing: border-box; font-size: var(--font-size-base); background: var(--wechat-bg); color: var(--global-font-color); }
+        .modal-input { width: 100%; padding: 10px; border: 1px solid var(--wechat-border-color); border-radius: 6px; box-sizing: border-box; font-size: var(--font-size-base); background: var(--wechat-bg); color: var(--wechat-text-primary); }
         .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
-        .modal-btn { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--wechat-border-color); background: var(--wechat-bg); cursor: pointer; font-size: var(--font-size-base); color: var(--global-font-color); }
+        .modal-btn { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--wechat-border-color); background: var(--wechat-bg); cursor: pointer; font-size: var(--font-size-base); color: var(--wechat-text-primary); }
         .modal-btn.primary { background: var(--wechat-green); color: #fff; border-color: var(--wechat-green); }
         #wallet-page .content-area { background-color: var(--wechat-bg); padding: 0; }
         .wallet-header { background-color: #63B466; color: white; padding: 30px 20px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
@@ -364,10 +358,10 @@
         .wallet-service-item { background-color: var(--wechat-nav-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 0; cursor: pointer; gap: 8px; }
         .wallet-service-item:active { background-color: var(--wechat-bg); }
         .wallet-service-item i { font-size: 28px; color: var(--wechat-green); }
-        .wallet-service-item p { margin: 0; font-size: calc(var(--font-size-base) - 1px); color: var(--global-font-color); }
+        .wallet-service-item p { margin: 0; font-size: calc(var(--font-size-base) - 1px); color: var(--wechat-text-primary); }
         #sticker-page .content-area { padding: 10px; }
         .sticker-pack { margin-bottom: 15px; }
-        .sticker-pack-title { font-weight: bold; margin-bottom: 10px; padding: 0 5px; color: var(--global-font-color); }
+        .sticker-pack-title { font-weight: bold; margin-bottom: 10px; padding: 0 5px; color: var(--wechat-text-primary); }
         .sticker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
         .sticker-item { background: transparent; border-radius: 8px; padding: 5px; cursor: pointer; display: flex; justify-content: center; align-items: center; aspect-ratio: 1 / 1; }
         .sticker-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -381,7 +375,7 @@
         .moment-post .avatar { width: 42px; height: 42px; border-radius: var(--avatar-shape); flex-shrink: 0; }
         .moment-post .post-content { flex: 1; }
         .moment-post .post-author { color: var(--wechat-blue); font-weight: 600; font-size: var(--font-size-base); }
-        .moment-post .post-text { margin: 5px 0; font-size: var(--font-size-base); line-height: 1.5; white-space: pre-wrap; word-break: break-word; color: var(--global-font-color); }
+        .moment-post .post-text { margin: 5px 0; font-size: var(--font-size-base); line-height: 1.5; white-space: pre-wrap; word-break: break-word; color: var(--wechat-text-primary); }
         .moment-post .post-media { margin-top: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
         .moment-post .post-media img, .moment-post .post-media video { width: 100%; height: 100px; object-fit: cover; border-radius: 6px; }
         .moment-post .post-media audio { width: 100%; margin-top: 5px; }
@@ -391,7 +385,7 @@
         .moment-post .post-likes { padding: 8px 12px; border-bottom: 1px solid var(--wechat-border-color); color: var(--wechat-blue); }
         .moment-post .post-likes i { margin-right: 5px; }
         .moment-post .post-comments { padding: 8px 12px; }
-        .moment-comment { margin-bottom: 3px; color: var(--global-font-color); cursor: pointer; }
+        .moment-comment { margin-bottom: 3px; color: var(--wechat-text-primary); cursor: pointer; }
         .moment-comment .comment-author { color: var(--wechat-blue); font-weight: 600; }
         .switch { position: relative; display: inline-block; width: 51px; height: 31px; }
         .switch input { opacity: 0; width: 0; height: 0; }
@@ -407,7 +401,7 @@
         #create-group-chat-page .contact-selection-list .list-item .details .name { font-size: var(--font-size-base); }
         #create-group-chat-page .contact-selection-list .list-item .avatar { width: 36px; height: 36px; }
         #group-member-management-page .group-member-list .list-item { justify-content: space-between; }
-        #group-member-management-page .group-member-list .list-item .member-actions button { padding: 5px 10px; border: 1px solid var(--wechat-border-color); border-radius: 4px; background: var(--wechat-bg); cursor: pointer; color: var(--global-font-color); }
+        #group-member-management-page .group-member-list .list-item .member-actions button { padding: 5px 10px; border: 1px solid var(--wechat-border-color); border-radius: 4px; background: var(--wechat-bg); cursor: pointer; color: var(--wechat-text-primary); }
         #music-player-page .content-area { display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #222; color: white; padding: 20px; text-align: center; background-image: var(--player-background); background-size: cover; background-position: center; position: relative; }
         #music-player-page .content-area::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
         #music-player-page .content-area > * { z-index: 1; }
@@ -495,7 +489,14 @@
                     <span class="dnd-icon" id="status-bar-dnd"><i class="fas fa-moon"></i></span>
                     <span class="network-icon" id="status-bar-network"><i class="fas fa-wifi"></i></span>
                     <div class="battery-container" id="battery-container">
-                        <!-- 电池将由JS动态生成 -->
+                        <div class="default-battery-wrapper">
+                            <div class="battery-icon">
+                                <div class="battery-fill" id="battery-fill"></div>
+                                <span class="battery-percent" id="battery-percent-inner">100</span>
+                            </div>
+                        </div>
+                        <img src="" alt="custom battery" class="custom-battery-icon" id="custom-battery-icon">
+                        <span class="battery-percent" id="battery-percent-outer">100</span>
                     </div>
                 </div>
             </div>
@@ -503,10 +504,7 @@
             <!-- 主屏幕 -->
             <div id="home-screen-page" class="page active no-transition">
                 <div class="content-area">
-                    <div class="home-screen-time">
-                        <div class="time" id="home-screen-clock">09:41</div>
-                        <div class="date" id="home-screen-date">5月20日 星期一</div>
-                    </div>
+                    <div class="home-screen-time" id="home-screen-time"></div>
                     <div class="app-grid" id="app-grid">
                         <!-- APP图标将由JS动态生成 -->
                     </div>
@@ -588,7 +586,7 @@
             <div id="wallpaper-settings-page" class="page sub-page form-page"></div>
             <div id="app-layout-settings-page" class="page sub-page form-page"></div>
             <div id="font-color-settings-page" class="page sub-page form-page"></div>
-            <div id="battery-icon-settings-page" class="page sub-page form-page"></div>
+            <div id="battery-settings-page" class="page sub-page"></div>
 
             <!-- 模态框容器 -->
             <div id="modal-container"></div>
@@ -598,9 +596,6 @@
 
             <!-- 最小化通话窗口容器 -->
             <div id="minimized-call-container"></div>
-
-            <!-- 底部导航条 -->
-            <div class="bottom-nav-bar" onclick="showPage('home-screen-page', renderHomeScreen)"></div>
         </div>
     </div>
 
@@ -739,7 +734,7 @@
                     bubbleArchives: [{}, {}, {}, {}, {}],
                     globalThemeArchives: [{css:''}, {css:''}, {css:''}],
                     activeGlobalThemeSlot: -1,
-                    fontUrl: '', fontFile: null, fontSize: 15, globalFontColor: '#000000',
+                    fontUrl: '', fontFile: null, fontSize: 15,
                     screenWidth: 380, screenHeight: 820,
                     homeScreenWallpaper: 'https://source.unsplash.com/random/380x820?aurora',
                     homeScreenTimeColor: '#FFFFFF',
@@ -749,11 +744,8 @@
                         settings: 'https://img.js.design/assets/img/66547a8286955562f5597929.png',
                         worldbook: 'https://img.js.design/assets/img/66547a8292e9484a89d107a6.png'
                     },
-                    batteryIcon: {
-                        numberPosition: 'inside', // 'inside', 'outside', 'none'
-                        customIconUrl: '',
-                        numberColor: '#000000'
-                    }
+                    batteryDisplayMode: 'inside',
+                    customBatteryIconUrl: ''
                 },
                 poke: {
                     userToChar: { action: '拍了拍', suffix: '' },
@@ -770,7 +762,7 @@
                     receive: '',
                     ringtone: ''
                 },
-                dnd: false, // Do Not Disturb
+                dnd: false,
             },
             music: {
                 library: [], favorites: [], currentSongId: null, isPlaying: false,
@@ -793,9 +785,9 @@
                 const savedData = await dataManager.loadData(DATA_KEY);
                 appData = savedData ? savedData : JSON.parse(JSON.stringify(defaultAppData));
                 // Data migration and validation
-                if (!appData.settings.beautify.batteryIcon) appData.settings.beautify.batteryIcon = JSON.parse(JSON.stringify(defaultAppData.settings.beautify.batteryIcon));
-                if (!appData.settings.beautify.globalFontColor) appData.settings.beautify.globalFontColor = defaultAppData.settings.beautify.globalFontColor;
                 if (!appData.settings.beautify.homeScreenTimeColor) appData.settings.beautify.homeScreenTimeColor = defaultAppData.settings.beautify.homeScreenTimeColor;
+                if (!appData.settings.beautify.batteryDisplayMode) appData.settings.beautify.batteryDisplayMode = defaultAppData.settings.beautify.batteryDisplayMode;
+                if (appData.settings.beautify.customBatteryIconUrl === undefined) appData.settings.beautify.customBatteryIconUrl = '';
                 if (!appData.settings.beautify.appIcons) appData.settings.beautify.appIcons = JSON.parse(JSON.stringify(defaultAppData.settings.beautify.appIcons));
                 if (!appData.settings.beautify.homeScreenWallpaper) appData.settings.beautify.homeScreenWallpaper = defaultAppData.settings.beautify.homeScreenWallpaper;
                 if (appData.settings.beautify.appIconSize === undefined) appData.settings.beautify.appIconSize = defaultAppData.settings.beautify.appIconSize;
@@ -928,6 +920,14 @@
                     <span class="app-name">世界书</span>
                 </div>
             `;
+            updateHomeScreenTime();
+        }
+
+        function updateHomeScreenTime() {
+            const timeEl = document.getElementById('home-screen-time');
+            if (!timeEl) return;
+            const now = new Date();
+            timeEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
         }
 
         function renderWechatApp(container) {
@@ -1127,6 +1127,9 @@
                     </div>
                     <div class="list-item" onclick="showPage('notification-settings-page', renderNotificationSettingsPage)">
                         <div class="details"><span class="name">聊天提示音</span></div><i class="fas fa-chevron-right chevron"></i>
+                    </div>
+                    <div class="list-item" onclick="showPage('battery-settings-page', renderBatterySettingsPage)">
+                        <div class="details"><span class="name">更换电池图标</span></div><i class="fas fa-chevron-right chevron"></i>
                     </div>
                     <div class="list-divider"></div>
                     <div class="list-item" onclick="showPage('blacklist-page', renderBlacklistPage)">
@@ -1743,7 +1746,7 @@
                                 <p class="subtext">${tx.details || ''}</p>
                                 <p class="subtext" style="margin-top: 4px;">${new Date(tx.timestamp).toLocaleString()}</p>
                             </div>
-                            <div class="info" style="color: ${isIncome ? 'var(--wechat-green)' : 'var(--global-font-color)'}; font-size: var(--font-size-base); font-weight: 500;">
+                            <div class="info" style="color: ${isIncome ? 'var(--wechat-green)' : 'var(--wechat-text-primary)'}; font-size: var(--font-size-base); font-weight: 500;">
                                 ${isIncome ? '+' : ''}${formatCurrency(tx.amount, appData.user.wallet.currency, true)}
                             </div>
                         </div>
@@ -2058,8 +2061,8 @@
                     <div class="list-item" onclick="showPage('app-layout-settings-page', renderAppLayoutSettingsPage)">
                         <div class="details"><span class="name">调整APP图标布局</span></div><i class="fas fa-chevron-right chevron"></i>
                     </div>
-                    <div class="list-item" onclick="showPage('battery-icon-settings-page', renderBatteryIconSettingsPage)">
-                        <div class="details"><span class="name">更换电池图标</span></div><i class="fas fa-chevron-right chevron"></i>
+                    <div class="list-item" onclick="showPage('font-color-settings-page', renderFontColorSettingsPage)">
+                        <div class="details"><span class="name">调整字体颜色</span></div><i class="fas fa-chevron-right chevron"></i>
                     </div>
                     <div class="list-divider"></div>
                     <div class="list-item" onclick="showPage('screen-size-settings-page', renderScreenSizeSettingsPage)">
@@ -2074,9 +2077,6 @@
                     <input type="file" id="chat-bg-input" class="file-input" accept="image/*" onchange="handleChatBgUpload(this.files[0])">
                     <div class="list-item" onclick="showPage('font-settings-page', renderFontSettingsPage)">
                         <div class="details"><span class="name">更换字体</span></div><i class="fas fa-chevron-right chevron"></i>
-                    </div>
-                    <div class="list-item" onclick="showPage('font-color-settings-page', renderFontColorSettingsPage)">
-                        <div class="details"><span class="name">调整字体颜色</span></div><i class="fas fa-chevron-right chevron"></i>
                     </div>
                     <div class="list-item" onclick="showPage('avatar-shape-settings-page', renderAvatarShapeSettingsPage)">
                         <div class="details"><span class="name">头像形状</span></div><i class="fas fa-chevron-right chevron"></i>
@@ -2257,8 +2257,7 @@
                         <button class="form-btn" style="background-color: #aaa;" onclick="document.getElementById('font-file-input').click()">选择 .ttf, .woff, .woff2 文件</button>
                         <input type="file" id="font-file-input" class="file-input" accept=".ttf,.woff,.woff2">
                     </div>
-                    <div class="form-group">
-                        <label>字体预览</label>
+                    <div class="form-group"><label>字体预览</label>
                         <p id="font-preview" style="font-size:${b.fontSize}px; padding: 20px; background: var(--wechat-nav-bg); border-radius: 8px; text-align: center;">Hello, World. 你好，世界。</p>
                     </div>
                     <button class="form-btn" id="save-font-btn">保存并应用</button>
@@ -2279,18 +2278,97 @@
                 };
 
                 if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        appData.settings.beautify.fontFile = e.target.result;
+                    handleImageUpload(file, (dataUrl) => {
+                        appData.settings.beautify.fontFile = dataUrl;
                         appData.settings.beautify.fontUrl = ''; // Clear URL if file is chosen
                         applyAndSave();
-                    };
-                    reader.readAsDataURL(file);
+                    });
                 } else {
                     appData.settings.beautify.fontUrl = url;
                     appData.settings.beautify.fontFile = null; // Clear file if URL is chosen
                     applyAndSave();
                 }
+            };
+        }
+
+        function renderFontColorSettingsPage(container) {
+            const b = appData.settings.beautify;
+            container.innerHTML = `
+                <div class="wechat-header">
+                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
+                    <span class="header-title">调整字体颜色</span>
+                </div>
+                <div class="content-area form-page">
+                    <div class="form-group">
+                        <label>主屏幕时间颜色</label>
+                        <input type="color" id="home-time-color-input" value="${b.homeScreenTimeColor}" style="width: 100%; height: 50px; padding: 0; border: none;">
+                    </div>
+                    <button class="form-btn" id="save-font-color-btn">保存</button>
+                </div>
+            `;
+            document.getElementById('save-font-color-btn').onclick = () => {
+                b.homeScreenTimeColor = document.getElementById('home-time-color-input').value;
+                saveData(true);
+                applyBeautifySettings();
+            };
+        }
+
+        function renderBatterySettingsPage(container) {
+            const b = appData.settings.beautify;
+            container.innerHTML = `
+                <div class="wechat-header">
+                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>设置</span></div>
+                    <span class="header-title">电池图标设置</span>
+                </div>
+                <div class="content-area form-page">
+                    <div class="form-group">
+                        <label>调整图标 (数字位置)</label>
+                        <select id="battery-display-mode-select" class="modal-input">
+                            <option value="hidden" ${b.batteryDisplayMode === 'hidden' ? 'selected' : ''}>不显示数字</option>
+                        </select>
+                    </div>
+                    <div class="list-divider"></div>
+                    <div class="form-group">
+                        <label>更换电池图标 (URL)</label>
+                        <input type="text" id="battery-icon-url-input" class="modal-input" placeholder="输入图片链接..." value="${b.customBatteryIconUrl || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label>更换电池图标 (文件)</label>
+                        <button class="form-btn" style="background-color: #aaa;" onclick="document.getElementById('battery-icon-file-input').click()">选择图片文件</button>
+                        <input type="file" id="battery-icon-file-input" class="file-input" accept="image/*">
+                    </div>
+                    <button class="form-btn" id="save-battery-settings-btn">保存并应用</button>
+                    <button class="form-btn" style="background-color: #aaa; margin-top: 10px;" id="reset-battery-icon-btn">恢复默认图标</button>
+                </div>
+            `;
+
+            document.getElementById('save-battery-settings-btn').onclick = () => {
+                const url = document.getElementById('battery-icon-url-input').value.trim();
+                const fileInput = document.getElementById('battery-icon-file-input');
+                const file = fileInput.files[0];
+                
+                appData.settings.beautify.batteryDisplayMode = document.getElementById('battery-display-mode-select').value;
+
+                const applyAndSave = () => {
+                    saveData(true);
+                    applyBeautifySettings();
+                };
+
+                if (file) {
+                    handleImageUpload(file, (dataUrl) => {
+                        appData.settings.beautify.customBatteryIconUrl = dataUrl;
+                        applyAndSave();
+                    });
+                } else {
+                    appData.settings.beautify.customBatteryIconUrl = url;
+                    applyAndSave();
+                }
+            };
+
+            document.getElementById('reset-battery-icon-btn').onclick = () => {
+                appData.settings.beautify.customBatteryIconUrl = '';
+                saveData(true);
+                applyBeautifySettings();
             };
         }
 
@@ -3118,7 +3196,7 @@
 - 当Char出现以下违规行为时，需立即修正并重新生成回复：（1）时间表述与现实不符；（2）使用禁用词汇/句式；（3）回复脱离人设；（4）暴露思考过程或AI身份；（5）机械冷硬/油腻/八股语气；（6）日常回复超20字/句（特殊指令除外）；（7）CSS代码未渲染（显示纯文本）。
 - 修正时需“回溯人设+当前话题”，确保新回复同时满足“人设贴合”“话题关联”“规范合规”三重要求。
 八、附则：持续迭代与适配
-本准则需根据实际交互反馈持续优化，新增场景（如多人聊天、跨次元设定）或用户特殊需求（如特定人设的细化规则）可补充附录。Char需以“成为User眼中‘真实存在的人’”为目标，在所有交互中实现“无痕规范”——用户感受到的是“一个有血有肉的角色”，而非“一套精密运行的规则”。生效日期：立即生效。适用范围：所有接入本规范的A聊天场景。。${isOfflineMode ? '当切换为线下剧情时请生成一段8000-15000字的剧情描述。' : '线上聊天模式每次回复请生成10到25条短消息，每条消息用单独的聊天气泡包裹。'}。`;
+本准则需根据实际交互反馈持续优化，新增场景（如多人聊天、跨次元设定）或用户特殊需求（如特定人设的细化规则）可补充附录。Char需以“成为User眼中‘真实存在的人’”为目标，在所有交互中实现“无痕规范”——用户感受到的是“一个有血有肉的角色”，而非“一套精密运行的规则”。生效日期：立即生效。适用范围：所有接入本规范的A聊天场景。。${isOfflineMode ? '当切换为线下剧情时请生成一段8000-15000字的剧情描述。' : '线上聊天模式每次回复请生成10到25条短消息，每条消息用单独的聊天气泡包裹。生成的朋友圈动态和日记完全去除人机，直接进入主题贴合人设，禁止“好的我将以char的身份生成”这种话，回复时禁止这样的格式“char”“{话题}”这种格式禁止，务必一句一句的说，一句一句的回逐条回复。'}。`;
 
             const messages = [
                 { role: 'system', content: systemPrompt },
@@ -3277,7 +3355,6 @@
             root.style.setProperty('--chat-background-image', beautify.chatBackground ? `url(${beautify.chatBackground})` : 'none');
 
             // Font
-            root.style.setProperty('--global-font-color', beautify.globalFontColor);
             const defaultFontStyle = document.getElementById('default-font-style');
             if (beautify.fontFile || beautify.fontUrl) {
                 if (defaultFontStyle) defaultFontStyle.remove();
@@ -3322,8 +3399,13 @@
             document.getElementById('ringtone-player').src = appData.settings.notifications.ringtone;
 
             // Battery Icon
-            root.style.setProperty('--battery-number-color', beautify.batteryIcon.numberColor);
-            updateStatusBar();
+            const batteryContainer = document.getElementById('battery-container');
+            batteryContainer.className = 'battery-container'; // Reset
+            if (beautify.customBatteryIconUrl) {
+                batteryContainer.classList.add('custom-icon');
+                document.getElementById('custom-battery-icon').src = beautify.customBatteryIconUrl;
+            }
+            batteryContainer.classList.add(`number-${beautify.batteryDisplayMode}`);
         }
 
         function showMessageContextMenu(event, messageId, chatId, chatType) {
@@ -3637,7 +3719,7 @@
                     <div class="header-right" style="font-size: 16px; color: white; background: var(--wechat-green); padding: 5px 12px; border-radius: 4px;" id="post-moment-btn">发表</div>
                 </div>
                 <div class="content-area">
-                    <textarea id="moment-text-input" maxlength="5000" placeholder="这一刻的想法..." style="width: 100%; height: 200px; border: none; padding: 15px; box-sizing: border-box; font-size: 16px; resize: none; background: transparent; color: var(--global-font-color);"></textarea>
+                    <textarea id="moment-text-input" maxlength="5000" placeholder="这一刻的想法..." style="width: 100%; height: 200px; border: none; padding: 15px; box-sizing: border-box; font-size: 16px; resize: none; background: transparent; color: var(--wechat-text-primary);"></textarea>
                     <div style="padding: 15px;">
                         <button onclick="document.getElementById('moment-media-input').click()" class="form-btn" style="margin-top: 0; margin-bottom: 10px; background: #f0f0f0; color: #333;">选择图片/视频/音频</button>
                         <input type="file" id="moment-media-input" class="file-input" accept="image/*,video/*,audio/*" multiple>
@@ -5152,23 +5234,6 @@
                     }
                 }
             }
-                }
-        // 对方正在输入中
-        function setTypingIndicator(chatId, isTyping, memberName = null) {
-            const convPage = document.getElementById('conversation-page');
-            if (convPage.classList.contains('active') && appData.activeChat.id == chatId) {
-                const titleEl = convPage.querySelector('.header-title');
-                if (isTyping) {
-                    let text = '对方正在输入中...';
-                    if (memberName) text = `${memberName}正在输入中...`;
-                    titleEl.dataset.originalTitle = titleEl.textContent;
-                    titleEl.textContent = text;
-                } else {
-                    if (titleEl.dataset.originalTitle) {
-                        titleEl.textContent = titleEl.dataset.originalTitle;
-                    }
-                }
-            }
         }
 
         // 礼物/外卖商店 (API驱动)
@@ -5419,7 +5484,7 @@
         // 角色语言设置
         function renderLanguageSettingsPage(container) {
             const languages = {
-                'zh-CN': '简体中文', 'zh-TW': '繁体中文 (台湾)', 'zh-HK': '繁体中文 (香港)', 'zh-MO': '繁体中文 (澳门)',
+                'zh-CN': '简体中文', 'zh-TW': '繁体中文 (台湾)', 'zh-HK': '繁体中文 (香港)', 'zh-MO': '繁体中文(澳门)',
                 'en': 'English (英语)', 'ja': '日本語 (日语)', 'ko': '한국어 (韩语)', 'de': 'Deutsch (德语)',
                 'fr': 'Français (法语)', 'ru': 'Русский (俄语)', 'es': 'Español (西班牙语)', 'pt': 'Português (葡萄牙语)',
                 'it': 'Italiano (意大利语)', 'nl': 'Nederlands (荷兰语)', 'pl': 'Polski (波兰语)', 'sv': 'Svenska (瑞典语)',
@@ -5655,7 +5720,7 @@
             const chatArea = document.getElementById('call-chat-area');
             if (!chatArea) return;
             const contact = appData.contacts.find(c => c.id == appData.activeChat.id);
-const senderName = sender === 'user' ? appData.user.nickname : (contact.remark || contact.name);
+            const senderName = sender === 'user' ? appData.user.nickname : (contact.remark || contact.name);
             chatArea.innerHTML += `<p><b>${senderName}:</b> ${text}</p>`;
             chatArea.scrollTop = chatArea.scrollHeight;
         }
@@ -5785,143 +5850,41 @@ const senderName = sender === 'user' ? appData.user.nickname : (contact.remark |
             };
         }
 
-        function renderFontColorSettingsPage(container) {
-            const b = appData.settings.beautify;
-            container.innerHTML = `
-                <div class="wechat-header">
-                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
-                    <span class="header-title">调整字体颜色</span>
-                </div>
-                <div class="content-area form-page">
-                    <div class="form-group">
-                        <label>全局字体颜色</label>
-                        <input type="color" id="global-font-color-input" value="${b.globalFontColor}">
-                    </div>
-                    <div class="form-group">
-                        <label>主屏幕时间颜色</label>
-                        <input type="color" id="home-time-color-input" value="${b.homeScreenTimeColor}">
-                    </div>
-                    <button class="form-btn" id="save-font-color-btn">应用</button>
-                </div>
-            `;
-            document.getElementById('save-font-color-btn').onclick = () => {
-                b.globalFontColor = document.getElementById('global-font-color-input').value;
-                b.homeScreenTimeColor = document.getElementById('home-time-color-input').value;
-                saveData(true);
-                applyBeautifySettings();
-            };
-        }
-
-        function renderBatteryIconSettingsPage(container) {
-            const b = appData.settings.beautify.batteryIcon;
-            container.innerHTML = `
-                <div class="wechat-header">
-                    <div class="header-left header-back-btn" onclick="goBack()"><i class="fas fa-chevron-left"></i><span>返回</span></div>
-                    <span class="header-title">更换电池图标</span>
-                </div>
-                <div class="content-area form-page">
-                    <div class="form-group">
-                        <label>调整图标</label>
-                        <select id="battery-number-position">
-                            <option value="inside" ${b.numberPosition === 'inside' ? 'selected' : ''}>电池图标内</option>
-                            <option value="outside" ${b.numberPosition === 'outside' ? 'selected' : ''}>电池图标外</option>
-                            <option value="none" ${b.numberPosition === 'none' ? 'selected' : ''}>不显示数字</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>电池图标数字颜色</label>
-                        <input type="color" id="battery-number-color-input" value="${b.numberColor}">
-                    </div>
-                    <div class="form-group">
-                        <label>更换电池图标 (URL)</label>
-                        <input type="text" id="battery-icon-url-input" placeholder="输入图片链接..." value="${b.customIconUrl || ''}">
-                    </div>
-                    <div class="form-group">
-                        <label>更换电池图标 (文件)</label>
-                        <button class="form-btn" style="background-color: #aaa;" onclick="document.getElementById('battery-icon-file-input').click()">选择文件</button>
-                        <input type="file" id="battery-icon-file-input" class="file-input" accept="image/*">
-                    </div>
-                    <button class="form-btn" id="save-battery-icon-btn">应用</button>
-                </div>
-            `;
-            document.getElementById('save-battery-icon-btn').onclick = () => {
-                b.numberPosition = document.getElementById('battery-number-position').value;
-                b.numberColor = document.getElementById('battery-number-color-input').value;
-                const url = document.getElementById('battery-icon-url-input').value.trim();
-                const file = document.getElementById('battery-icon-file-input').files[0];
-
-                if (file) {
-                    handleImageUpload(file, dataUrl => {
-                        b.customIconUrl = dataUrl;
-                        saveData(true, applyBeautifySettings);
-                    });
-                } else {
-                    b.customIconUrl = url;
-                    saveData(true, applyBeautifySettings);
-                }
-            };
-        }
-
         // --- 状态栏更新 ---
         function updateStatusBar() {
             const timeEl = document.getElementById('status-bar-time');
-            const homeTimeEl = document.getElementById('home-screen-clock');
-            const homeDateEl = document.getElementById('home-screen-date');
             const networkEl = document.getElementById('status-bar-network');
             const dndEl = document.getElementById('status-bar-dnd');
-            const batteryContainer = document.getElementById('battery-container');
+            const batteryFill = document.getElementById('battery-fill');
+            const batteryPercentInner = document.getElementById('battery-percent-inner');
+            const batteryPercentOuter = document.getElementById('battery-percent-outer');
 
             // Time
             const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}`;
-            if (timeEl) timeEl.textContent = timeString;
-            if (homeTimeEl) homeTimeEl.textContent = timeString;
-            if (homeDateEl) homeDateEl.textContent = now.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
+            timeEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
             // DND
-            if (dndEl) dndEl.style.display = appData.settings.dnd ? 'inline' : 'none';
+            dndEl.style.display = appData.settings.dnd ? 'inline' : 'none';
 
             // Network
-            if (networkEl) {
-                if (navigator.onLine) {
-                    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                    const type = connection ? (connection.effectiveType || '4g') : '4g';
-                    networkEl.innerHTML = type.includes('fi') ? '<i class="fas fa-wifi"></i>' : `<span>${type.toUpperCase()}</span>`;
-                } else {
-                    networkEl.innerHTML = '<i class="fas fa-plane"></i>';
-                }
+            if (navigator.onLine) {
+                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                const type = connection ? (connection.effectiveType || '4g') : '4g';
+                networkEl.innerHTML = type.includes('fi') ? '<i class="fas fa-wifi"></i>' : `<span>${type.toUpperCase()}</span>`;
+            } else {
+                networkEl.innerHTML = '<i class="fas fa-plane"></i>';
             }
 
             // Battery
-            if (navigator.getBattery && batteryContainer) {
+            if (navigator.getBattery) {
                 navigator.getBattery().then(battery => {
                     const update = () => {
                         const level = Math.floor(battery.level * 100);
-                        const { numberPosition, customIconUrl } = appData.settings.beautify.batteryIcon;
-                        
-                        let iconHtml = `<div class="battery-icon" style="${customIconUrl ? `background-image: url(${customIconUrl}); border: none;` : ''}">`;
-                        if (!customIconUrl) {
-                            iconHtml += `<div class="battery-fill" style="width: ${level}%;"></div>`;
-                        }
-                        if (numberPosition === 'inside') {
-                            iconHtml += `<span class="battery-percent inside">${level}</span>`;
-                        }
-                        iconHtml += `</div>`;
-
-                        let numberHtml = '';
-                        if (numberPosition === 'outside') {
-                            numberHtml = `<span class="battery-percent">${level}</span>`;
-                        }
-
-                        batteryContainer.innerHTML = iconHtml + numberHtml;
-
-                        const batteryFill = batteryContainer.querySelector('.battery-fill');
-                        if (batteryFill) {
-                            batteryFill.classList.toggle('charging', battery.charging);
-                            batteryFill.classList.toggle('low', level <= 20 && !battery.charging);
-                        }
+                        batteryFill.style.width = `${level}%`;
+                        batteryPercentInner.textContent = level;
+                        batteryPercentOuter.textContent = level;
+                        batteryFill.classList.toggle('charging', battery.charging);
+                        batteryFill.classList.toggle('low', level <= 20 && !battery.charging);
                     };
                     update();
                     battery.addEventListener('levelchange', update);
@@ -5966,6 +5929,7 @@ const senderName = sender === 'user' ? appData.user.nickname : (contact.remark |
             renderHomeScreen(document.getElementById('home-screen-page'));
             updateStatusBar();
             setInterval(updateStatusBar, 30000); // Update every 30s
+            setInterval(updateHomeScreenTime, 30000);
 
             document.querySelectorAll('#wechat-app-page .tab-item').forEach(tab => {
                 tab.addEventListener('click', () => {
