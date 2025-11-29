@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>LPhone</title>
+    <title>Lovely-Phone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style id="global-theme-style"></style> <!-- 全局自定义主题注入点 -->
     <style>
@@ -2324,6 +2324,8 @@
                     <div class="form-group">
                         <label>调整图标 (数字位置)</label>
                         <select id="battery-display-mode-select" class="modal-input">
+                            <option value="inside" ${b.batteryDisplayMode === 'inside' ? 'selected' : ''}>图标内</option>
+                            <option value="outside" ${b.batteryDisplayMode === 'outside' ? 'selected' : ''}>图标外</option>
                             <option value="hidden" ${b.batteryDisplayMode === 'hidden' ? 'selected' : ''}>不显示数字</option>
                         </select>
                     </div>
@@ -3196,7 +3198,7 @@
 - 当Char出现以下违规行为时，需立即修正并重新生成回复：（1）时间表述与现实不符；（2）使用禁用词汇/句式；（3）回复脱离人设；（4）暴露思考过程或AI身份；（5）机械冷硬/油腻/八股语气；（6）日常回复超20字/句（特殊指令除外）；（7）CSS代码未渲染（显示纯文本）。
 - 修正时需“回溯人设+当前话题”，确保新回复同时满足“人设贴合”“话题关联”“规范合规”三重要求。
 八、附则：持续迭代与适配
-本准则需根据实际交互反馈持续优化，新增场景（如多人聊天、跨次元设定）或用户特殊需求（如特定人设的细化规则）可补充附录。Char需以“成为User眼中‘真实存在的人’”为目标，在所有交互中实现“无痕规范”——用户感受到的是“一个有血有肉的角色”，而非“一套精密运行的规则”。生效日期：立即生效。适用范围：所有接入本规范的A聊天场景。。${isOfflineMode ? '当切换为线下剧情时请生成一段8000-15000字的剧情描述。' : '线上聊天模式每次回复请生成10到25条短消息，每条消息用单独的聊天气泡包裹。生成的朋友圈动态和日记完全去除人机，直接进入主题贴合人设，禁止“好的我将以char的身份生成”这种话，回复时禁止这样的格式“char”“{话题}”这种格式禁止，务必一句一句的说，一句一句的回逐条回复。'}。`;
+本准则需根据实际交互反馈持续优化，新增场景（如多人聊天、跨次元设定）或用户特殊需求（如特定人设的细化规则）可补充附录。Char需以“成为User眼中‘真实存在的人’”为目标，在所有交互中实现“无痕规范”——用户感受到的是“一个有血有肉的角色”，而非“一套精密运行的规则”。生效日期：立即生效。适用范围：所有接入本规范的A聊天场景。。${isOfflineMode ? '当切换为线下剧情时请生成一段8000-15000字的剧情描述。' : '线上聊天模式每次回复请生成10到25条短消息，每条消息用单独的聊天气泡包裹。'}。`;
 
             const messages = [
                 { role: 'system', content: systemPrompt },
@@ -5178,7 +5180,7 @@
             }
         }
 
-   // 公告栏
+      // 公告栏
         function renderAnnouncementPage(container) {
             container.innerHTML = `
                 <div class="wechat-header">
@@ -5218,6 +5220,23 @@
             `;
         }
 
+        // 对方正在输入中
+        function setTypingIndicator(chatId, isTyping, memberName = null) {
+            const convPage = document.getElementById('conversation-page');
+            if (convPage.classList.contains('active') && appData.activeChat.id == chatId) {
+                const titleEl = convPage.querySelector('.header-title');
+                if (isTyping) {
+                    let text = '对方正在输入中...';
+                    if (memberName) text = `${memberName}正在输入中...`;
+                    titleEl.dataset.originalTitle = titleEl.textContent;
+                    titleEl.textContent = text;
+                } else {
+                    if (titleEl.dataset.originalTitle) {
+                        titleEl.textContent = titleEl.dataset.originalTitle;
+                    }
+                }
+            }
+        }
         // 对方正在输入中
         function setTypingIndicator(chatId, isTyping, memberName = null) {
             const convPage = document.getElementById('conversation-page');
@@ -5850,41 +5869,67 @@
             };
         }
 
+  
         // --- 状态栏更新 ---
         function updateStatusBar() {
             const timeEl = document.getElementById('status-bar-time');
+            const homeTimeEl = document.getElementById('home-screen-clock');
+            const homeDateEl = document.getElementById('home-screen-date');
             const networkEl = document.getElementById('status-bar-network');
             const dndEl = document.getElementById('status-bar-dnd');
-            const batteryFill = document.getElementById('battery-fill');
-            const batteryPercentInner = document.getElementById('battery-percent-inner');
-            const batteryPercentOuter = document.getElementById('battery-percent-outer');
+            const batteryContainer = document.getElementById('battery-container');
 
             // Time
             const now = new Date();
-            timeEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            if (timeEl) timeEl.textContent = timeString;
+            if (homeTimeEl) homeTimeEl.textContent = timeString;
+            if (homeDateEl) homeDateEl.textContent = now.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
 
             // DND
-            dndEl.style.display = appData.settings.dnd ? 'inline' : 'none';
+            if (dndEl) dndEl.style.display = appData.settings.dnd ? 'inline' : 'none';
 
             // Network
-            if (navigator.onLine) {
-                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                const type = connection ? (connection.effectiveType || '4g') : '4g';
-                networkEl.innerHTML = type.includes('fi') ? '<i class="fas fa-wifi"></i>' : `<span>${type.toUpperCase()}</span>`;
-            } else {
-                networkEl.innerHTML = '<i class="fas fa-plane"></i>';
+            if (networkEl) {
+                if (navigator.onLine) {
+                    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                    const type = connection ? (connection.effectiveType || '4g') : '4g';
+                    networkEl.innerHTML = type.includes('fi') ? '<i class="fas fa-wifi"></i>' : `<span>${type.toUpperCase()}</span>`;
+                } else {
+                    networkEl.innerHTML = '<i class="fas fa-plane"></i>';
+                }
             }
 
             // Battery
-            if (navigator.getBattery) {
+            if (navigator.getBattery && batteryContainer) {
                 navigator.getBattery().then(battery => {
                     const update = () => {
                         const level = Math.floor(battery.level * 100);
-                        batteryFill.style.width = `${level}%`;
-                        batteryPercentInner.textContent = level;
-                        batteryPercentOuter.textContent = level;
-                        batteryFill.classList.toggle('charging', battery.charging);
-                        batteryFill.classList.toggle('low', level <= 20 && !battery.charging);
+                        const { numberPosition, customIconUrl } = appData.settings.beautify.batteryIcon;
+                        
+                        let iconHtml = `<div class="battery-icon" style="${customIconUrl ? `background-image: url(${customIconUrl}); border: none;` : ''}">`;
+                        if (!customIconUrl) {
+                            iconHtml += `<div class="battery-fill" style="width: ${level}%;"></div>`;
+                        }
+                        if (numberPosition === 'inside') {
+                            iconHtml += `<span class="battery-percent inside">${level}</span>`;
+                        }
+                        iconHtml += `</div>`;
+
+                        let numberHtml = '';
+                        if (numberPosition === 'outside') {
+                            numberHtml = `<span class="battery-percent">${level}</span>`;
+                        }
+
+                        batteryContainer.innerHTML = iconHtml + numberHtml;
+
+                        const batteryFill = batteryContainer.querySelector('.battery-fill');
+                        if (batteryFill) {
+                            batteryFill.classList.toggle('charging', battery.charging);
+                            batteryFill.classList.toggle('low', level <= 20 && !battery.charging);
+                        }
                     };
                     update();
                     battery.addEventListener('levelchange', update);
@@ -5929,7 +5974,6 @@
             renderHomeScreen(document.getElementById('home-screen-page'));
             updateStatusBar();
             setInterval(updateStatusBar, 30000); // Update every 30s
-            setInterval(updateHomeScreenTime, 30000);
 
             document.querySelectorAll('#wechat-app-page .tab-item').forEach(tab => {
                 tab.addEventListener('click', () => {
